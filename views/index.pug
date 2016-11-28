@@ -6,23 +6,45 @@ html
 		link(rel="stylesheet" href="css/main.css")
 
 	body
-		header(aria-label="App title")
-			div(role="banner")
-				h1.banner__title Is My &#x1F684 Delayed?
-		main
-			.last-retrieved
-				p.
-					Last retrieved: #{retrieveTime}
-			.train-info
-				table
-					thead
-						tr
-							td Line
-							td Delayed?
-					tbody
-						each train in trains
+		.wrapper
+			header(aria-label="App title")
+				div(role="banner")
+					h1.banner__title Is My &#x1F684 Delayed?
+			main
+				.last-retrieved
+					p.
+						Last retrieved: #{retrieveTime}
+				.train-info
+					if trains.length
+					table
+						thead
 							tr
-								td= train.name
-								td= train.isDelayed
-					//- each train in trains
-					//- 	li #{train.name} - Delayed? #{train.isDelayed}
+								td Line
+								td Delayed?
+						tbody
+							if trains.length
+								each train in trains
+									tr
+										td= train.name
+										td(class= train.isDelayed === "Yes" ? "delayed" : undefined)= train.isDelayed
+							else
+								tr
+									td Unable to retrieve train information.
+
+				.site-info(role='contentinfo')
+					h2 How does this work?
+					p.
+						Glad you asked. This website uses the official GO Transit website to pull its data. Whatever the GO Transit website shows for train delays is what this site will show. So no, unfortunately we can't deduce what trains are delayed until it's updated by GO Transit itself.
+
+					h2 Why'd you do this?
+					p.
+						Sick of visiting GO's website just to check if my train is delayed in the morning, this web app strips away the rest of the cruft associated with visiting GO's website. This web app is ideal for those on mobile phones and want to preserve their data usage.
+
+					h2 What's next?
+					ul
+						li #[strong Auto Fetch:] IMTD will automatically fetch updates from GO on a 5 minute interval.
+						li #[strong Delay Information:] IMTD will pull in information about each delay.
+
+		footer
+			p.
+				An  experiment by #[a(href='https://danieldafoe.github.io') Daniel Dafoe].
