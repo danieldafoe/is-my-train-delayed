@@ -5,7 +5,8 @@ var cheerio = require('cheerio');
 
 var app = express();
 
-app.get('/scrape', function(req, res) {
+app.get('/', function(req, res) {
+
 	// Scrape GO Transit main page
   url = 'http://www.gotransit.com/publicroot/en/default.aspx';
 
