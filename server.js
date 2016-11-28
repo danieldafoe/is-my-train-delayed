@@ -48,7 +48,7 @@ app.trainsAreDelayed = function() {
   });
 }
 
-app.listen('8081');
+app.listen(process.env.PORT || 5000);
 console.log('Magic happens on port 8081');
 
 exports = module.exports = app;
