@@ -4,6 +4,7 @@
   "description": "A scraper that scrapes stuff.",
   "main": "server.js",
   "scripts": {
+    "develop": "node server.js | gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,5 +13,10 @@
     "cheerio": "^0.22.0",
     "express": "^4.14.0",
     "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "pug": "^0.1.0"
   }
 }
