@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
 	    // If empty, no trains are delayed
 	    var trainsDelayed = trains.has('.delayLink');
 
-	    for (var i = 0; i < trains.length - 1; i++) {
+	    for (var i = 0; i < trains.length; i++) {
 	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
 	    	console.log($(trains[i.toString()]).has('.delayLink'));
 	    	var isDelayed = $(trains[i.toString()]).has('.delayLink').length === 0 ? "No" : "Yes";
