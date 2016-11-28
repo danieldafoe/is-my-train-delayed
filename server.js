@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
       }
   });
 
-  res.render('index', {});
+  res.render('index.html', {});
 });
 
 app.trainsAreDelayed = function() {
