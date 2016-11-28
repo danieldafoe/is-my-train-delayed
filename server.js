@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var fs = require('fs');
+var pug = require('pug');
 var request = require('request');
 var cheerio = require('cheerio');
 
