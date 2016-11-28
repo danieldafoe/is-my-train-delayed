@@ -6,7 +6,7 @@ var cheerio = require('cheerio');
 
 var app = express();
 
-app.set('view engine', 'html');
+app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, '/')));
 app.get('/', function(req, res) {
 
@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 
   request(url, function(error, response, html) {
       if (!error) {
-          // Next, we'll utilize the cheerio library on the returned html which will essentially give us jQuery functionality
+          // Use Cheerio to execute jQuery on returned HTML
           var $ = cheerio.load(html);
           var trainCount = $('.gridStatusTrain tbody').find('tr').length;
           var trains = $('.gridStatusTrain tbody tr');
@@ -30,6 +30,7 @@ app.get('/', function(req, res) {
       }
   });
 
+  // Supply formatted, scraped data to render of pug
   res.render('index', {});
 });
 
@@ -55,6 +56,5 @@ app.trainsAreDelayed = function() {
 }
 
 app.listen(process.env.PORT || 5000);
-console.log('Magic happens on port 8081');
 
 exports = module.exports = app;
