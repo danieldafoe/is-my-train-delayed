@@ -5,6 +5,7 @@ var cheerio = require('cheerio');
 
 var app = express();
 
+app.set('view engine', 'html');
 app.get('/', function(req, res) {
 
 	// Scrape GO Transit main page
