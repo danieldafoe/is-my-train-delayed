@@ -16,7 +16,7 @@ body {
   color: #333; }
   @media (max-width: 480px) {
     body {
-      max-width: 80%; } }
+      max-width: 95%; } }
 
 header {
   display: -webkit-box;
@@ -60,7 +60,7 @@ td {
       font-size: 300%; } }
   @media (max-width: 480px) {
     .banner__title {
-      font-size: 225%; } }
+      font-size: 245%; } }
 
 @media (max-width: 480px) {
   .last-retrieved {
