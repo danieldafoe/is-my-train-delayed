@@ -9,4 +9,19 @@ html
 			div(role="banner")
 				h1.banner__title Is My &#x1F684 Delayed?
 		main
-			p Test
+			.last-retrieved
+				p.
+					Last retrieved: #{retrieveTime}
+			.train-info
+				table
+					thead
+						tr
+							td Line
+							td Delayed?
+					tbody
+						each train in trains
+							tr
+								td= train.name
+								td= train.isDelayed
+					//- each train in trains
+					//- 	li #{train.name} - Delayed? #{train.isDelayed}
