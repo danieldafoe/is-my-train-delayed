@@ -17,30 +17,13 @@ app.get('/', function(req, res) {
   var timestamp;
   var trainsArr = [];
 
-  // request(url, function(error, response, html) {
-  //     if (!error) {
-  //         // Use Cheerio to execute jQuery on returned HTML
-  //         var $ = cheerio.load(html);
-  //         var trainCount = $('.gridStatusTrain tbody').find('tr').length;
-  //         var trains = $('.gridStatusTrain tbody tr');
-  //         var timestamp = $('.timestamp div span').html();
-  //         var trainsDelayed = trains.has('.delayLink');
-  //         console.log(timestamp);
-  //         console.log(trains['0']);
-  //         console.log(trainsDelayed);
-  //         for (var i = 0; i < trainCount; i++) {
-  //         	var train = trains[i.toString()];
-  //         }
-  //     }
-  // });
-
   // Supply formatted, scraped data to render of pug
   request(url, function(error, response, html) {
 		if (!error) {
 	    var $ = cheerio.load(html);
 	    timestamp = $('.timestamp div span').html();
 	    // Returns all train lines
-	    var trains = $('.gridStatusTrain tbody tr');
+	    var trains = $('#rtab1 .gridStatusTrain tbody tr');
 	    // If empty, no trains are delayed
 	    var trainsDelayed = trains.has('.delayLink');
 
@@ -56,14 +39,6 @@ app.get('/', function(req, res) {
 	    		"isDelayed": isDelayed
 	    	})
 	    }
-
-	    // If trainsDelayed.length is 0, none are delayed
-	    // if (trainsDelayed.length === 0) {
-	    // 	return false;
-	    // }
-	    // else {
-	    // 	return true;
-	    // }
     }
 
     res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
