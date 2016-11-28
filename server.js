@@ -9,7 +9,7 @@ var app = express();
 
 app.set('views', './views')
 app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, '/css')));
+app.use(express.static(path.join(__dirname, '/')));
 app.get('/', function(req, res) {
 
 	// Scrape GO Transit main page
