@@ -51,6 +51,7 @@ table {
 }
 thead {
 	td {
+		font-weight: bold;
 		border-bottom: 6px solid #ddd;
 	}
 }
@@ -75,6 +76,7 @@ td {
 // --------------------------------------------------------------------------
 .banner {
 	&__title {
+		margin-bottom: 0;
 		font-size: 500%;
 
 		@media (max-width: 805px) {
@@ -83,5 +85,10 @@ td {
 		@media (max-width: 480px) {
 			font-size: 225%;
 		}
+	}
+}
+.last-retrieved {
+	@media (max-width: 480px) {
+		margin: .5rem 0 2rem;
 	}
 }
