@@ -5,18 +5,19 @@
   width: 1px;
   height: 1px; }
 
+* {
+  box-sizing: border-box; }
+
 html {
+  margin: 0;
   font-size: 62.5%; }
 
 body {
-  max-width: 70%;
-  margin: 0 auto;
+  margin: 0;
   font-size: 1.4rem;
   font-family: "San Francisco", Roboto, "Helvetica Neue", "Myriad Pro", sans-serif;
-  color: #333; }
-  @media (max-width: 480px) {
-    body {
-      max-width: 95%; } }
+  color: #333;
+  background-color: #f5f5f5; }
 
 header {
   display: -webkit-box;
@@ -35,6 +36,20 @@ main {
   flex-direction: column;
   align-items: center;
   font-size: 1.8rem; }
+  main > * {
+    margin-bottom: 1rem; }
+
+footer {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 0;
+  padding: 1rem;
+  background-color: #ddd; }
 
 table {
   border-collapse: collapse; }
@@ -42,6 +57,24 @@ table {
 thead td {
   font-weight: bold;
   border-bottom: 6px solid #ddd; }
+
+h1 {
+  margin-bottom: 0;
+  font-size: 500%;
+  color: #7791C1; }
+  @media (max-width: 805px) {
+    h1 {
+      font-size: 300%; } }
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 245%; } }
+
+h2 {
+  margin: 2rem 0 0;
+  font-size: 115%; }
+
+a {
+  color: #7791C1; }
 
 tbody tr:nth-child(2n+2) {
   background-color: #eee; }
@@ -52,16 +85,22 @@ tbody td:last-child {
 td {
   padding: 1rem 1.5rem; }
 
-.banner__title {
-  margin-bottom: 0;
-  font-size: 500%; }
-  @media (max-width: 805px) {
-    .banner__title {
-      font-size: 300%; } }
+.wrapper {
+  max-width: 70%;
+  min-height: 100vh;
+  height: 100%;
+  margin: 0 auto; }
   @media (max-width: 480px) {
-    .banner__title {
-      font-size: 245%; } }
+    .wrapper {
+      max-width: 95%; } }
+
+.delayed {
+  color: red; }
 
 @media (max-width: 480px) {
   .last-retrieved {
     margin: .5rem 0 2rem; } }
+
+.site-info {
+  margin: 2rem 0 0;
+  padding: 0 15%; }
