@@ -1,0 +1,78 @@
+//
+// Globals
+// --------------------------------------------------------------------------
+html,
+html a {
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-family: $ff-sans;
+  font-weight: normal;
+  font-size: 18px;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+a {
+  position: relative;
+  color: $clr-alt;
+
+  &:hover {
+    text-decoration: line-through;
+    color: $clr-main;
+  }
+}
+ul {
+  padding: 0;
+}
+p {
+  letter-spacing: 0;
+}
+label {
+  display: block;
+  font-weight: 400;
+  font-family: $ff-sans;
+  color: $clr-main;
+}
+textarea {
+  &.form-control {
+    padding: 10px 12px 45px 12px;
+  }
+}
+address {
+  font-style: inherit;
+  line-height:  inherit;
+  margin: 0;
+}
+
+// Sections
+main,
+section {
+  padding: 0 0 2.5rem;
+}
+
+// Emojis
+.emoji {
+  position: relative;
+  font-size: 109%;
+
+  &--lg {
+    font-size: 235%;
+  }
+  &--hero {
+    font-size: 450%;
+  }
+  &--inline {
+    top: 3px;
+  }
+}

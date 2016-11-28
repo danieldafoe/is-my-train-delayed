@@ -1,0 +1,46 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+//
+// Media Queries
+// --------------------------------------------------------------------------
+@mixin tablet() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile() {
+  @media (max-width: 480px) {
+    @content; 
+  } 
+}
+
+//
+// Flexbox
+// --------------------------------------------------------------------------
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+//
+// Prefixed
+// --------------------------------------------------------------------------
+@mixin transition($args: all 150ms ease-out 0s) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  -o-transform: $args;
+  transform: $args;
+}

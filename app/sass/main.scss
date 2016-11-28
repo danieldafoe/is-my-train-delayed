@@ -1,0 +1,47 @@
+// ==========================================================================
+// Styles for: Is My Train Delayed?
+// ==========================================================================
+
+//
+// Imports
+// --------------------------------------------------------------------------
+@import 'common/_mixins.scss';
+
+//
+// Variables
+// --------------------------------------------------------------------------
+
+
+//
+// Globals
+// --------------------------------------------------------------------------
+.accessible {
+	position: absolute;
+	text-indent: -1000px;
+	clip: rect(0,0,0);
+	width: 1px;
+	height: 1px;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	max-width: 70%;
+	margin: 0 auto;
+	font-size: 1.4rem;
+	font-family: "San Francisco", Roboto, "Helvetica Neue", "Myriad Pro", sans-serif;
+	color: #333;
+}
+header {
+	@include flexbox();
+	justify-content: center;
+}
+
+//
+// Styles
+// --------------------------------------------------------------------------
+.banner {
+	&__title {
+		font-size: 500%;
+	}
+}
