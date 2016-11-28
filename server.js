@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require('path');
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
@@ -6,6 +7,7 @@ var cheerio = require('cheerio');
 var app = express();
 
 app.set('view engine', 'html');
+app.use(express.static(path.join(__dirname, '/')));
 app.get('/', function(req, res) {
 
 	// Scrape GO Transit main page
