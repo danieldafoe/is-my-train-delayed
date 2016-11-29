@@ -10,10 +10,15 @@
 //
 // Variables
 // --------------------------------------------------------------------------
-$clr-error: red;
+$clr-on-time: green;
+$clr-delayed: red;
+$clr-body-bg: #fff;
+$clr-btn-primary: #7791C1;
 $clr-footer-bg: #ddd;
 $clr-link: #7791C1;
 $clr-title: #7791C1;
+
+$ff-sans: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
 
 //
 // Globals
@@ -35,9 +40,9 @@ html {
 body {
 	margin: 0;
 	font-size: 1.4rem;
-	font-family: "San Francisco", Roboto, "Helvetica Neue", "Myriad Pro", sans-serif;
+	font-family: $ff-sans;
 	color: #333;
-	background-color: #f5f5f5;
+	background-color: $clr-body-bg;
 }
 header {
 	@include flexbox();
@@ -59,6 +64,7 @@ footer {
 	justify-content: center;
 	margin: 2rem 0 0;
 	padding: 1rem;
+	font-size: 1.8rem;
 	background-color: $clr-footer-bg;
 }
 table {
@@ -68,6 +74,36 @@ thead {
 	td {
 		font-weight: bold;
 		border-bottom: 6px solid #ddd;
+	}
+}
+tbody {
+	tr {
+		border-bottom: 1px solid #ddd;
+	}
+	td {
+		&:nth-child(2) {
+			padding: 1rem 3rem 1rem 1rem;
+		}
+		&:last-child {
+			text-align: center;
+		}
+	}
+}
+td {
+	padding: 1rem 2rem;
+}
+button {
+	width: 100%;
+	padding: 1rem;
+	font-size: 1.8rem;
+	border: 0;
+	border-radius: 0;
+	color: #fff;
+	border-bottom: 5px solid lighten($clr-btn-primary, 15%);
+	background-color: $clr-btn-primary;
+
+	&:hover {
+		cursor: pointer;
 	}
 }
 h1 {
@@ -89,21 +125,7 @@ h2 {
 a {
 	color: $clr-link;
 }
-tbody {
-	tr {
-		&:nth-child(2n+2) {
-			background-color: #eee;
-		}
-	}
-	td {
-		&:last-child {
-			text-align: center;
-		}
-	}
-}
-td {
-	padding: 1rem 1.5rem;
-}
+
 
 //
 // Styles
@@ -118,15 +140,41 @@ td {
 		max-width: 95%;
 	}
 }
-.delayed {
-	color: $clr-error;
+.on-time {
+	background-color: $clr-on-time;
 }
-.last-retrieved {
-	@media (max-width: 480px) {
-		margin: .5rem 0 2rem;
+.delayed {
+	background-color: $clr-delayed;
+
+	&-msg {
+		display: block;
+		font-size: 1.1rem;
+		font-weight: bold;
+
+		&--hidden {
+			display: none;
+		}
 	}
 }
 .site-info {
-	margin: 2rem 0 0;
+	margin: 7rem 0 0;
 	padding: 0 15%;
+}
+.train-info {
+	margin: 3rem auto 0;
+
+	&__last-retrieved {
+		font-size: 1.4rem;
+		font-style: italic;
+	}
+}
+
+//
+// Status Circle
+//
+.status-circle {
+	display: block;
+	height: 1.25rem;
+	width: 1.25rem;
+	border-radius: 50%;
 }

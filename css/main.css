@@ -15,9 +15,9 @@ html {
 body {
   margin: 0;
   font-size: 1.4rem;
-  font-family: "San Francisco", Roboto, "Helvetica Neue", "Myriad Pro", sans-serif;
+  font-family: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
   color: #333;
-  background-color: #f5f5f5; }
+  background-color: #fff; }
 
 header {
   display: -webkit-box;
@@ -49,6 +49,7 @@ footer {
   justify-content: center;
   margin: 2rem 0 0;
   padding: 1rem;
+  font-size: 1.8rem;
   background-color: #ddd; }
 
 table {
@@ -57,6 +58,30 @@ table {
 thead td {
   font-weight: bold;
   border-bottom: 6px solid #ddd; }
+
+tbody tr {
+  border-bottom: 1px solid #ddd; }
+
+tbody td:nth-child(2) {
+  padding: 1rem 3rem 1rem 1rem; }
+
+tbody td:last-child {
+  text-align: center; }
+
+td {
+  padding: 1rem 2rem; }
+
+button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.8rem;
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  border-bottom: 5px solid #acbcd9;
+  background-color: #7791C1; }
+  button:hover {
+    cursor: pointer; }
 
 h1 {
   margin-bottom: 0;
@@ -76,15 +101,6 @@ h2 {
 a {
   color: #7791C1; }
 
-tbody tr:nth-child(2n+2) {
-  background-color: #eee; }
-
-tbody td:last-child {
-  text-align: center; }
-
-td {
-  padding: 1rem 1.5rem; }
-
 .wrapper {
   max-width: 70%;
   min-height: 100vh;
@@ -94,13 +110,30 @@ td {
     .wrapper {
       max-width: 95%; } }
 
-.delayed {
-  color: red; }
+.on-time {
+  background-color: green; }
 
-@media (max-width: 480px) {
-  .last-retrieved {
-    margin: .5rem 0 2rem; } }
+.delayed {
+  background-color: red; }
+  .delayed-msg {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold; }
+    .delayed-msg--hidden {
+      display: none; }
 
 .site-info {
-  margin: 2rem 0 0;
+  margin: 7rem 0 0;
   padding: 0 15%; }
+
+.train-info {
+  margin: 3rem auto 0; }
+  .train-info__last-retrieved {
+    font-size: 1.4rem;
+    font-style: italic; }
+
+.status-circle {
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 50%; }
