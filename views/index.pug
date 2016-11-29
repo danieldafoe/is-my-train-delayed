@@ -3,6 +3,7 @@ html
 	head
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		title Is My Train Delayed?
+		link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans")
 		link(rel="stylesheet" href="css/main.css")
 
 	body
@@ -11,25 +12,29 @@ html
 				div(role="banner")
 					h1.banner__title Is My &#x1F684 Delayed?
 			main
-				.last-retrieved
-					p.
-						Last retrieved: #{retrieveTime}
 				.train-info
 					if trains.length
 					table
 						thead
 							tr
-								td Line
-								td Delayed?
+								td(colspan='2') Train Line
+								td Status
 						tbody
 							if trains.length
 								each train in trains
 									tr
+										td #[span.status-circle(class= train.status === "Delayed" ? "delayed" : "on-time")]
 										td= train.name
-										td(class= train.isDelayed === "Yes" ? "delayed" : undefined)= train.isDelayed
+										td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined) (~10 min)]
 							else
 								tr
 									td Unable to retrieve train information.
+					.train-info__last-retrieved
+						p.
+							Last refreshed: #{retrieveTime}
+
+					.train-info__actions
+						button(type='button') Refresh
 
 				.site-info(role='contentinfo')
 					h2 How does this work?
