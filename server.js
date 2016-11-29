@@ -29,14 +29,13 @@ app.get('/', function(req, res) {
 
 	    for (var i = 0; i < trains.length; i++) {
 	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
-	    	console.log($(trains[i.toString()]).has('.delayLink'));
-	    	var isDelayed = $(trains[i.toString()]).has('.delayLink').length === 0 ? "No" : "Yes";
+	    	var status = $(trains[i.toString()]).has('.delayLink').length === 0 ? "On time" : "Delayed";
 
 	    	// Push retrieved train line info
 	    	// to trains array
 	    	trainsArr.push({
 	    		"name": name,
-	    		"isDelayed": isDelayed
+	    		"status": status
 	    	})
 	    }
     }
@@ -76,7 +75,7 @@ app.getTrains = function() {
         var trainsArr = [
         	{
         		"name": "Test",
-        		"isDelayed": false
+        		"status": false
         	}
         ];
 
