@@ -1,2 +1,5 @@
 # Ignore node modules
 node_modules/
+
+# Ignore log files
+npm-debug.log
