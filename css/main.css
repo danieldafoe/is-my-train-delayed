@@ -132,6 +132,9 @@ a {
 .site-info {
   margin: 7rem 0 0;
   padding: 0 15%; }
+  @media (max-width: 992px) {
+    .site-info {
+      margin-top: 5rem; } }
 
 .train-info {
   margin: 3rem auto 0; }
