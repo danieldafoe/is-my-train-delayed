@@ -33,6 +33,25 @@ app.get('/', function(req, res) {
 
 	    for (var i = 0; i < trains.length; i++) {
 	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
+//
+// API: /fetch
+// --------------------------------------------------------------------------
+app.get('/fetch', (req, res) => {
+	var url = 'http://www.gotransit.com/publicroot/en/default.aspx';
+	var trainsArr = [];
+	var timestamp;
+
+	request(url, function(error, response, html) {
+		if (!error) {
+      var $ = cheerio.load(html);
+	    timestamp = $('.timestamp div span').html();
+	    // Returns all train lines
+	    var trains = $('#rtab1 .gridStatusTrain tbody tr');
+	    // If empty, no trains are delayed
+	    var trainsDelayed = trains.has('.delayLink');
+
+	    for (var i = 0; i < trains.length; i++) {
+	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
 	    	var status = $(trains[i.toString()]).has('.delayLink').length === 0 ? "On time" : "Delayed";
 
 	    	// Push retrieved train line info
