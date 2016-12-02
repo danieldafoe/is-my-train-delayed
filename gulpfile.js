@@ -11,6 +11,10 @@ var config = {
 	"sass": {
 		"src": "./app/sass/*.scss",
 		"dest": "./css/"
+	},
+	"js": {
+		"src": "./app/js/*.js",
+		"dest": "./js/"
 	}
 };
 
@@ -26,8 +30,19 @@ gulp.task('sass', () => {
 	.pipe(gulp.dest(config.sass.dest))
 });
 
+gulp.task('js', (cb) => {
+	pump([
+        gulp.src(config.js.src),
+        uglify(),
+        gulp.dest(config.js.dest)
+    ],
+    cb
+  );
+});
+
 gulp.task('watch', () => {
 	gulp.watch(config.sass.src, ['sass']);
+	gulp.watch(config.js.src, ['js']);
 });
 
 gulp.task('default', ['watch']);
