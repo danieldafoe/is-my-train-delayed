@@ -39,17 +39,25 @@ html
 				.site-info(role='contentinfo' aria-label='Information about Is My Train Delayed?')
 					h2 How does this work?
 					p.
-						Glad you asked. This website uses the official GO Transit website to pull its data. Whatever the GO Transit website shows for train delays is what this site will show. So no, unfortunately we can't deduce what trains are delayed until it's updated by GO Transit itself.
+						This application uses the official GO Transit website to get its data. Whatever the GO Transit website shows for train delays is what this site will show. So no, unfortunately we can't predict what trains will be delayed.
 
-					h2 Why'd you do this?
+					h2 Coming Soon
 					p.
-						Sick of visiting GO's website just to check if my train is delayed in the morning, this web app strips away the rest of the cruft associated with visiting GO's website. This web app is ideal for those on mobile phones and want to preserve their data usage.
+						#[strong Delay Information]
+					p(style='text-decoration: line-through;').
+						Get additional delay information (e.x., Length of delay, direction).
+					
+					strong Auto Fetch
+					p.
+						Turn on Auto Fetch to make IMTD? automatically update information every 5 minutes.
 
-					h2 What's next?
-					ul
-						li #[strong Auto Fetch:] IMTD will automatically fetch updates from GO on a 5 minute interval.
-						li #[strong Delay Information:] IMTD will pull in information about each delay.
+					h2 Want to Help?
+					p.
+						Want to help improve this application? Please open an issue on the GitHub repo at #[a(href='') https://github.com/danieldafoe/is-my-train-delayed] .
+
 
 		footer
 			p.
 				An  experiment by #[a(href='https://danieldafoe.github.io') Daniel Dafoe].
+
+		script(src='js/app.js')
