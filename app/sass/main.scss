@@ -38,6 +38,7 @@ html {
 	font-size: 62.5%;
 }
 body {
+	overflow-x: hidden;
 	margin: 0;
 	font-size: 1.4rem;
 	font-family: $ff-sans;
@@ -140,7 +141,8 @@ a {
 	margin: 0 auto;
 
 	@media (max-width: 480px) {
-		max-width: 95%;
+		max-width: 100%;
+		width: 100%;
 	}
 }
 .on-time {
