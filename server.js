@@ -81,6 +81,23 @@ app.get('/', function(req, res) {
 		    			// [4] = State of train (e.x., Moving)
 		    			// [5] = <br>
 		    			// [6] = Additional state of train (e.x., Waiting on a train ahead)
+		    		}
+		    	}
+	    	}
+	    	// Push retrieved train line info
+	    	// to trains array
+	    	trainsArr.push({
+	    		"name": name,
+	    		"status": status,
+	    		"direction": direction,
+	    		"details": statusArr
+	    	})
+	    }
+    }
+    res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
+	});
+});
+
 //
 // API: /fetch
 // --------------------------------------------------------------------------
