@@ -56,14 +56,14 @@ table {
   border-collapse: collapse; }
 
 thead td {
-  font-weight: bold;
   border-bottom: 6px solid #ddd; }
 
 tbody tr {
   border-bottom: 1px solid #ddd; }
 
 tbody td:nth-child(2) {
-  padding: 1rem 3rem 1rem 1rem; }
+  padding: 1rem 3rem 1rem 1rem;
+  font-weight: 600; }
 
 tbody td:last-child {
   text-align: center; }
@@ -99,7 +99,7 @@ h1 {
       font-size: 300%; } }
   @media (max-width: 480px) {
     h1 {
-      font-size: 245%; } }
+      font-size: 265%; } }
 
 h2 {
   margin: 2rem 0 0;
