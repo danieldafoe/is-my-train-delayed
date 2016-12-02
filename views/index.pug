@@ -32,9 +32,21 @@ html
 										else
 											td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined)]
 											//- td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined) (#{ train.status === "Delayed" ? train.details[0].delayLength : undefined})]
+
+									if train.status === "Delayed"
+										if train.details[0]
+											tr.delay-info
+												td
+												td(colspan='2')
+													each delay in train.details
+														.delay
+															span.delay-info__train !{delay.delayedTrain}
+															span.delay-info__length !{delay.delayLength}
+															span.delay-info__status !{delay.delayStatus}
 							else
 								tr
 									td Unable to retrieve train information.
+
 					.train-info__last-retrieved
 						p.
 							Last refreshed: #{retrieveTime}
