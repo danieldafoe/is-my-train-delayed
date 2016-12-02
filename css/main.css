@@ -13,6 +13,7 @@ html {
   font-size: 62.5%; }
 
 body {
+  overflow-x: hidden;
   margin: 0;
   font-size: 1.4rem;
   font-family: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
@@ -115,7 +116,8 @@ a {
   margin: 0 auto; }
   @media (max-width: 480px) {
     .wrapper {
-      max-width: 95%; } }
+      max-width: 100%;
+      width: 100%; } }
 
 .on-time {
   background-color: #29f442; }
