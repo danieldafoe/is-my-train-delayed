@@ -33,12 +33,45 @@ app.get('/', function(req, res) {
 
 	    for (var i = 0; i < trains.length; i++) {
 	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
+	    	
 	    	// Set default status to On time
 	    	var status = "On time";
 	    	// Check if <tr> contains info within one of its children
 	    	var smallDelay = $(trains[i.toString()]).has('.delayLink');
 	    	// Check if <tr> has link to URL with additional info
 	    	var bigDelay = $(trains[i.toString()]).has('.moreInfoLink');
+
+	    	// If <tr> contains an element
+	    	// with either .delayLink or
+	    	// .moreInfoLink, it's delayed
+	    	if (smallDelay.length > 0) {
+	    		status = "Delayed";
+
+	    		// If the current retrieved train line is delayed,
+	    		// find info about it
+	    		var statusText, direction, details;
+	    		var statusArr = [];
+	    		var statusPopovers = $(trains[i.toString()]).find('.messageDisrp');
+
+		    	for (var j = 0; j < statusPopovers.length; j++) {
+		    		if ($(statusPopovers[j.toString()]).find('h3').text() === name) {
+		    			// WESTBOUND or EASTBOUND
+		    			direction = $(statusPopovers[j.toString()]).find('.subtitle h4').text();
+		    			// 
+		    			details = $(statusPopovers[j.toString()]).find('li > span');
+
+		    			for (var k = 0; k < details.length; k++) {
+		    				// Iterate through known delays,
+		    				// save their data to statusArr[]
+		    				var detail = details[k.toString()];
+		    				statusArr.push({
+		    					"delayedTrain": detail.children[0].data,
+		    					"delayLength": detail.children[2].data,
+		    					"delayStatus": detail.children[4].data
+		    				});
+		    			} 
+
+
 		    			// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
 		    			// Counts text as an Object?
 		    			// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
@@ -77,13 +110,12 @@ app.get('/fetch', (req, res) => {
 	    	})
 	    }
     }
-
-    res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
+    res.json({"timestamp": timestamp, "trains": trainsArr});
 	});
 });
 
 app.trainsAreDelayed = function() {
-	url = 'http://www.gotransit.com/publicroot/en/default.aspx';
+	var url = 'http://www.gotransit.com/publicroot/en/default.aspx';
 
   request(url, function(error, response, html) {
       if (!error) {
