@@ -1,5 +1,7 @@
 var gulp = require('gulp');
+var pump = require('pump');
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 
 var config = {
 	"pug": {
