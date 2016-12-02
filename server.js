@@ -84,6 +84,27 @@ app.get('/', function(req, res) {
 		    		}
 		    	}
 	    	}
+	    	else if (bigDelay.length > 0) {
+	    		status = "Delayed";
+
+	    		// If the current retrieved train line is delayed,
+	    		// find info about it
+	    		var statusText, details;
+	    		var statusArr = [];
+	    		var moreInfoURL = $(trains[i.toString()]).find('.moreInfoLink').attr('href');
+
+	    		request(moreInfoURL, function(error, response, html) {
+	    			if (!error) {
+					    var $ = cheerio.load(html);
+					    var content = $('.tabs_tab').prop('style');
+					    console.log(content);
+					    statusArr.push({
+					    	"delayMsg": "Errro retrieving message"
+					    })
+					  }
+	    		});
+	    	}
+
 	    	// Push retrieved train line info
 	    	// to trains array
 	    	trainsArr.push({
