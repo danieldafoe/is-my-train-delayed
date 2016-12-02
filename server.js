@@ -39,6 +39,15 @@ app.get('/', function(req, res) {
 	    	var smallDelay = $(trains[i.toString()]).has('.delayLink');
 	    	// Check if <tr> has link to URL with additional info
 	    	var bigDelay = $(trains[i.toString()]).has('.moreInfoLink');
+		    			// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
+		    			// Counts text as an Object?
+		    			// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
+		    			// [1] = <br>
+		    			// [2] = Length of delay (e.x., Delay of 7m:53s)
+		    			// [3] = <br>
+		    			// [4] = State of train (e.x., Moving)
+		    			// [5] = <br>
+		    			// [6] = Additional state of train (e.x., Waiting on a train ahead)
 //
 // API: /fetch
 // --------------------------------------------------------------------------
