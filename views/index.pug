@@ -25,7 +25,13 @@ html
 									tr
 										td #[span.status-circle(class= train.status === "Delayed" ? "delayed" : "on-time")]
 										td= train.name
-										td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined) (~10 min)]
+										if train.status === "Delayed"
+											td.
+												#[a.delay-info-expand(href='') #{train.status}]
+												#[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined)]
+										else
+											td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined)]
+											//- td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined) (#{ train.status === "Delayed" ? train.details[0].delayLength : undefined})]
 							else
 								tr
 									td Unable to retrieve train information.
