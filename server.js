@@ -33,7 +33,7 @@ app.get('/', function(req, res) {
 
 	    for (var i = 0; i < trains.length; i++) {
 	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
-	    	
+
 	    	// Set default status to On time
 	    	var status = "On time";
 	    	// Check if <tr> contains info within one of its children
@@ -57,7 +57,7 @@ app.get('/', function(req, res) {
 		    		if ($(statusPopovers[j.toString()]).find('h3').text() === name) {
 		    			// WESTBOUND or EASTBOUND
 		    			direction = $(statusPopovers[j.toString()]).find('.subtitle h4').text();
-		    			// 
+		    			//
 		    			details = $(statusPopovers[j.toString()]).find('li > span');
 
 		    			for (var k = 0; k < details.length; k++) {
@@ -69,7 +69,7 @@ app.get('/', function(req, res) {
 		    					"delayLength": detail.children[2].data,
 		    					"delayStatus": detail.children[4].data
 		    				});
-		    			} 
+		    			}
 
 
 		    			// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
