@@ -81,17 +81,6 @@ app.get('/', function(req, res) {
 		    					"delayStatus": detail.children[4].data
 		    				});
 		    			} 
-
-
-		    			// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
-		    			// Counts text as an Object?
-		    			// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
-		    			// [1] = <br>
-		    			// [2] = Length of delay (e.x., Delay of 7m:53s)
-		    			// [3] = <br>
-		    			// [4] = State of train (e.x., Moving)
-		    			// [5] = <br>
-		    			// [6] = Additional state of train (e.x., Waiting on a train ahead)
 		    		}
 		    	}
 	    	}
@@ -108,11 +97,23 @@ app.get('/', function(req, res) {
 	    		request(moreInfoURL, function(error, response, html) {
 	    			if (!error) {
 					    var $ = cheerio.load(html);
-					    var content = $('.tabs_tab').prop('style');
-					    console.log(content);
-					    statusArr.push({
-					    	"delayMsg": "Errro retrieving message"
-					    })
+					    var content = $('#divupdates_train .MsgGroup');
+					    var msgTitles = $(content).find('h2');
+
+					    for (var l = 0; l < names.length; l++) {
+					    	// If name of train with "more information" matches
+					    	// name of retrieved <h2>, we're on the right info page
+					    	if (names[l] === $(msgTitles[l.toString()]).text()) {
+						    	statusArr.push({
+							    	"delayMsg": $(content).find('li').text()
+							    });
+						    }
+						    else {
+						    	statusArr.push({
+							    	"delayMsg": ""
+							    });
+						    }
+					    }
 					  }
 	    		});
 	    	}
@@ -124,7 +125,7 @@ app.get('/', function(req, res) {
 	    		"status": status,
 	    		"direction": direction,
 	    		"details": statusArr
-	    	})
+	    	});
 	    }
     }
     res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
