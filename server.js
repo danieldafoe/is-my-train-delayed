@@ -58,16 +58,24 @@ app.get('/', function(req, res) {
 
 		    	for (var j = 0; j < statusPopovers.length; j++) {
 		    		if ($(statusPopovers[j.toString()]).find('h3').text() === name) {
-		    			// WESTBOUND or EASTBOUND
 		    			direction = $(statusPopovers[j.toString()]).find('.subtitle h4').text();
-		    			// 
 		    			details = $(statusPopovers[j.toString()]).find('li > span');
 
 		    			for (var k = 0; k < details.length; k++) {
 		    				// Iterate through known delays,
 		    				// save their data to statusArr[]
 		    				var detail = details[k.toString()];
+		    				// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
+			    			// Counts text as an Object?
+			    			// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
+			    			// [1] = <br>
+			    			// [2] = Length of delay (e.x., Delay of 7m:53s)
+			    			// [3] = <br>
+			    			// [4] = State of train (e.x., Moving)
+			    			// [5] = <br>
+			    			// [6] = Additional state of train (e.x., Waiting on a train ahead)
 		    				statusArr.push({
+		    					"delayDirection": direction,
 		    					"delayedTrain": detail.children[0].data,
 		    					"delayLength": detail.children[2].data,
 		    					"delayStatus": detail.children[4].data
