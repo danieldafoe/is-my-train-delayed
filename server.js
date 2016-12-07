@@ -96,6 +96,7 @@ app.get('/', function(req, res) {
 		    	}
 	    	}
 	    	else if (bigDelay.length > 0) {
+	    		names.push(name);
 	    		status = "Delayed";
 
 	    		// If the current retrieved train line is delayed,
