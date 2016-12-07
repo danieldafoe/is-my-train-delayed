@@ -9,11 +9,13 @@
   box-sizing: border-box; }
 
 html {
+  width: 100%;
   margin: 0;
   font-size: 62.5%; }
 
 body {
   overflow-x: hidden;
+  width: 100%;
   margin: 0;
   font-size: 1.4rem;
   font-family: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
@@ -51,7 +53,7 @@ footer {
   margin: 2rem 0 0;
   padding: 1rem;
   font-size: 1.8rem;
-  background-color: #ddd; }
+  background-color: #cfd8e9; }
 
 table {
   border-collapse: collapse; }
@@ -59,8 +61,15 @@ table {
 thead td {
   border-bottom: 6px solid #ddd; }
 
+td {
+  padding: 1rem 2rem; }
+
 tbody tr {
   border-bottom: 1px solid #ddd; }
+
+@media (max-width: 480px) {
+  tbody td:first-of-type {
+    padding: 1rem 1.5rem; } }
 
 tbody td:nth-child(2) {
   padding: 1rem 3rem 1rem 1rem;
@@ -68,9 +77,6 @@ tbody td:nth-child(2) {
 
 tbody td:last-child {
   text-align: center; }
-
-td {
-  padding: 1rem 2rem; }
 
 button {
   -webkit-transition: all 150ms ease-out 0s;
@@ -100,7 +106,7 @@ h1 {
       font-size: 300%; } }
   @media (max-width: 480px) {
     h1 {
-      font-size: 265%; } }
+      font-size: 280%; } }
 
 h2 {
   margin: 2rem 0 0;
@@ -137,6 +143,11 @@ a {
   @media (max-width: 992px) {
     .site-info {
       margin-top: 5rem; } }
+  @media (max-width: 480px) {
+    .site-info {
+      max-width: 80%;
+      margin: 5rem auto 0;
+      padding: 0; } }
 
 .train-info {
   margin: 3rem auto 0; }
@@ -146,7 +157,7 @@ a {
 
 .delay {
   margin: 0 0 1rem;
-  padding: 0 0 1rem;
+  padding: 0 0 1rem 2rem;
   border-bottom: 1px solid #ddd; }
   .delay:first-child {
     margin: 1rem 0 1rem; }
@@ -158,6 +169,7 @@ a {
   display: none; }
   .delay-info.delay-info--show {
     display: table-row; }
+  .delay-info .delay-info__direction,
   .delay-info .delay-info__train,
   .delay-info .delay-info__length,
   .delay-info .delay-info__status {
@@ -166,7 +178,7 @@ a {
     padding: 0; }
   .delay-info span {
     display: block; }
-  .delay-info__train, .delay-info__length, .delay-info__status {
+  .delay-info__direction, .delay-info__train, .delay-info__length, .delay-info__status {
     font-size: 80%; }
   .delay-info__train {
     margin: 0 0 1rem; }
@@ -178,3 +190,9 @@ a {
   height: 1.25rem;
   width: 1.25rem;
   border-radius: 50%; }
+
+.goal-complete {
+  display: inline;
+  text-decoration: line-through; }
+  .goal-complete__text {
+    margin-left: 1rem; }
