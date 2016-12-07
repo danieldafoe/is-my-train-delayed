@@ -36,8 +36,7 @@ html
 									if train.status === "Delayed"
 										if train.details[0]
 											tr.delay-info
-												td
-												td(colspan='2')
+												td(colspan='3')
 													each delay in train.details
 														.delay
 															span.delay-info__train !{delay.delayedTrain}
