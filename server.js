@@ -24,6 +24,8 @@ app.get('/', function(req, res) {
   // Supply formatted, scraped data to render of pug
   request(url, function(error, response, html) {
 		if (!error) {
+			var name, status, smallDelay, bigDelay;
+			var names = [];
 	    var $ = cheerio.load(html);
 	    timestamp = $('.timestamp div span').html();
 	    // Returns all train lines
