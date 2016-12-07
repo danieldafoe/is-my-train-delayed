@@ -192,7 +192,4 @@ a {
   border-radius: 50%; }
 
 .goal-complete {
-  display: inline;
   text-decoration: line-through; }
-  .goal-complete__text {
-    margin-left: 1rem; }

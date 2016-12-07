@@ -263,10 +263,5 @@ a {
 // Goals
 // --------------------------------------------------------------------------
 .goal-complete {
-	display: inline;
 	text-decoration: line-through;
-
-	&__text {
-		margin-left: 1rem;
-	}
 }
