@@ -39,9 +39,13 @@ html
 												td(colspan='3')
 													each delay in train.details
 														.delay
-															span.delay-info__train !{delay.delayedTrain}
-															span.delay-info__length !{delay.delayLength}
-															span.delay-info__status Train is !{delay.delayStatus.toLowerCase()}
+															if delay.delayMsg
+																span.delayinfo__msg !{delay.delayMsg}
+															else
+																span.delay-info__direction !{train.direction}
+																span.delay-info__train !{delay.delayedTrain}
+																span.delay-info__length !{delay.delayLength}
+																span.delay-info__status Train is !{delay.delayStatus.toLowerCase()}
 							else
 								tr
 									td Unable to retrieve train information.
