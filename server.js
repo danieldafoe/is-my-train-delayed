@@ -34,14 +34,15 @@ app.get('/', function(req, res) {
 	    var trainsDelayed = trains.has('.delayLink');
 
 	    for (var i = 0; i < trains.length; i++) {
-	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
+	    	name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
+	    	// console.log(name);
 	    	
 	    	// Set default status to On time
 	    	status = "On time";
 	    	// Check if <tr> contains info within one of its children
-	    	var smallDelay = $(trains[i.toString()]).has('.delayLink');
+	    	smallDelay = $(trains[i.toString()]).has('.delayLink');
 	    	// Check if <tr> has link to URL with additional info
-	    	var bigDelay = $(trains[i.toString()]).has('.moreInfoLink');
+	    	bigDelay = $(trains[i.toString()]).has('.moreInfoLink');
 
 	    	// If <tr> contains an element
 	    	// with either .delayLink or
