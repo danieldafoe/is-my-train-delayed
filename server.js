@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 	    	var name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
 	    	
 	    	// Set default status to On time
-	    	var status = "On time";
+	    	status = "On time";
 	    	// Check if <tr> contains info within one of its children
 	    	var smallDelay = $(trains[i.toString()]).has('.delayLink');
 	    	// Check if <tr> has link to URL with additional info
