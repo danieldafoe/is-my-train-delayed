@@ -11,6 +11,7 @@ html
 			header(aria-label="App title")
 				div(role="banner")
 					h1.banner__title Is My &#x1F684 Delayed?
+
 			main
 				section.train-info(aria-label='Train information')
 					if trains.length
@@ -63,23 +64,15 @@ html
 						This application uses the official GO Transit website to get its data. Whatever the GO Transit website shows for train delays is what this site will show. So no, unfortunately we can't predict what trains will be delayed.
 
 					h2 Coming Soon
-					p.
-						#[strong Delay Information]
-					p.goal-complete.
-						Get additional delay information (e.x., Length of delay, direction).
-					
-					p.
-						#[strong Auto Fetch]
-					p.
-						Turn on Auto Fetch to make IMTD? automatically update information every 5 minutes.
+					ul
+						li #[strong Auto Fetch:] Turn on Auto Fetch to make IMTD? automatically update information every 5 minutes.
+						li.goal-complete #[strong Delay Information:] Get additional delay information (e.x., Length of delay, direction).
 
 					h2 Want to Help?
 					p.
-						Want to help improve this application? Please open an issue on the official #[a(href='https://github.com/danieldafoe/is-my-train-delayed') GitHub repo].
-
+						Please open an issue or pull request on the official #[a(href='https://github.com/danieldafoe/is-my-train-delayed') GitHub repo].
 
 		footer
-			p.
-				An  experiment by #[a(href='https://danieldafoe.github.io') Daniel Dafoe].
+			p An experiment by #[a(href='https://danieldafoe.github.io') Daniel Dafoe].
 
 		script(src='js/app.js')
