@@ -41,7 +41,7 @@ html
 													each delay in train.details
 														.delay
 															if delay.delayMsg
-																span.delayinfo__msg !{delay.delayMsg}
+																span.delayinfo__msg #[a(href="!{delay.delayMsg}") More information]
 															else
 																span.delay-info__direction !{train.direction}
 																span.delay-info__train !{delay.delayedTrain}
