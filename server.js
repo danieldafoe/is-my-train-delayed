@@ -129,6 +129,56 @@ app.get('/', function(req, res) {
 	    }
     }
     res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
+				else if (bigDelay.length > 0) {
+					names.push(name);
+					status = "Delayed";
+
+					// If the current retrieved train line is delayed,
+					// find info about it
+					var statusText, details;
+					var statusArr = [];
+					var moreInfoURL = $(trains[i.toString()]).find('.moreInfoLink').attr('href');
+
+					// If there's more information, display the link to find it
+					statusArr.push({
+						"delayMsg": moreInfoURL
+					});
+
+					// request(moreInfoURL, function(error, response, html) {
+					// 	if (!error) {
+					  //   var $ = cheerio.load(html);
+					  //   var content = $('#divupdates_train .MsgGroup');
+					  //   var msgTitles = $(content).find('h2');
+
+					  //   for (var l = 0; l < names.length; l++) {
+					  //   	// If name of train with "more information" matches
+					  //   	// name of retrieved <h2>, we're on the right info page
+					  //   	if (names[l] === $(msgTitles[l.toString()]).text()) {
+						 //    	statusArr.push({
+							//     	"delayMsg": $(content).find('li').text()
+							//     });
+						 //    }
+						 //    else {
+						 //    	statusArr.push({
+							//     	"delayMsg": ""
+							//     });
+						 //    }
+					  //   }
+					  // }
+					// });
+				}
+
+				// Push retrieved train line info
+				// to trains array
+				trainsArr.push({
+					"name": name,
+					"status": status,
+					"direction": direction,
+					"details": statusArr
+				});
+			}
+		}
+		res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
 	});
 });
 
