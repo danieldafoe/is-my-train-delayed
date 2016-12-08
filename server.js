@@ -21,114 +21,89 @@ app.get('/', function(req, res) {
   var timestamp;
   var trainsArr = [];
 
-  // Supply formatted, scraped data to render of pug
-  request(url, function(error, response, html) {
+	// Supply formatted, scraped data to render of pug
+	request(url, function(error, response, html) {
 		if (!error) {
 			var name, status, smallDelay, bigDelay;
 			var names = [];
-	    var $ = cheerio.load(html);
-	    timestamp = $('.timestamp div span').html();
-	    // Returns all train lines
-	    var trains = $('#rtab1 .gridStatusTrain tbody tr');
-	    // If empty, no trains are delayed
-	    var trainsDelayed = trains.has('.delayLink');
+			var $ = cheerio.load(html);
+			timestamp = $('.timestamp div span').html();
+			// Returns all train lines
+			var trains = $('#rtab1 .gridStatusTrain tbody tr');
+			// If empty, no trains are delayed
+			var trainsDelayed = trains.has('.delayLink');
 
-	    for (var i = 0; i < trains.length; i++) {
-	    	name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
-	    	// console.log(name);
-	    	
-	    	// Set default status to On time
-	    	status = "On time";
-	    	// Check if <tr> contains info within one of its children
-	    	smallDelay = $(trains[i.toString()]).has('.delayLink');
-	    	// Check if <tr> has link to URL with additional info
-	    	bigDelay = $(trains[i.toString()]).has('.moreInfoLink');
+			for (var i = 0; i < trains.length; i++) {
+				name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
+				// console.log(name);
+				
+				// Set default status to On time
+				status = "On time";
+				// Check if <tr> contains info within one of its children
+				smallDelay = $(trains[i.toString()]).has('.delayLink');
+				// Check if <tr> has link to URL with additional info
+				bigDelay = $(trains[i.toString()]).has('.moreInfoLink');
 
-	    	// If <tr> contains an element
-	    	// with either .delayLink or
-	    	// .moreInfoLink, it's delayed
-	    	if (smallDelay.length > 0) {
-	    		status = "Delayed";
+				// If <tr> contains an element
+				// with either .delayLink or
+				// .moreInfoLink, it's delayed
+				if (smallDelay.length > 0) {
+					status = "Delayed";
 
-	    		// If the current retrieved train line is delayed,
-	    		// find info about it
-	    		var statusText, direction, details;
-	    		var statusArr = [];
-	    		var statusPopovers = $(trains[i.toString()]).find('.messageDisrp');
+					// If the current retrieved train line is delayed,
+					// find info about it
+					var statusText, direction, details, delays;
+					var statusArr = [];
+					var statusPopovers = $(trains[i.toString()]).find('.messageDisrp');
 
-		    	for (var j = 0; j < statusPopovers.length; j++) {
-		    		if ($(statusPopovers[j.toString()]).find('h3').text() === name) {
-		    			direction = $(statusPopovers[j.toString()]).find('.subtitle h4').text();
-		    			details = $(statusPopovers[j.toString()]).find('li > span');
+					for (var j = 0; j < statusPopovers.length; j++) {
+						// Does the found delay title match the current line name?
+						if ($(statusPopovers[j.toString()]).find('h3').text() === name) {
+							// Find all direction titles
+							// If this is greater than 1, there are delays
+							// in both directions
+							directions = $(statusPopovers[j.toString()]).find('.subtitle');
+							console.log(directions);
 
-		    			for (var k = 0; k < details.length; k++) {
-		    				// Iterate through known delays,
-		    				// save their data to statusArr[]
-		    				var detail = details[k.toString()];
-		    				// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
-			    			// Counts text as an Object?
-			    			// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
-			    			// [1] = <br>
-			    			// [2] = Length of delay (e.x., Delay of 7m:53s)
-			    			// [3] = <br>
-			    			// [4] = State of train (e.x., Moving)
-			    			// [5] = <br>
-			    			// [6] = Additional state of train (e.x., Waiting on a train ahead)
-		    				statusArr.push({
-		    					"delayDirection": direction,
-		    					"delayedTrain": detail.children[0].data,
-		    					"delayLength": detail.children[2].data,
-		    					"delayStatus": detail.children[4].data
-		    				});
-		    			} 
-		    		}
-		    	}
-	    	}
-	    	else if (bigDelay.length > 0) {
-	    		names.push(name);
-	    		status = "Delayed";
+							// Iterate through directions that have delays
+							for (var m = 0; m < directions.length; m++) {
+								direction = $(directions[m.toString()]).find('h4').text();
+								console.log(direction);
+								// Get all next sibling <li> elements that are not
+								// another node with a directional title
+								delay = $(directions[m.toString()]).first().nextUntil('.subtitle');
 
-	    		// If the current retrieved train line is delayed,
-	    		// find info about it
-	    		var statusText, details;
-	    		var statusArr = [];
-	    		var moreInfoURL = $(trains[i.toString()]).find('.moreInfoLink').attr('href');
+								// Iterate through spans within each delay
+								// and get delay information
+								$(delay).find('span').each(function(i, el) {
+									// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
+									// Counts text as an Object?
+									// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
+									// [1] = <br>
+									// [2] = Length of delay (e.x., Delay of 7m:53s)
+									// [3] = <br>
+									// [4] = State of train (e.x., Moving)
+									// [5] = <br>
+									// [6] = Additional state of train (e.x., Waiting on a train ahead)
+									statusArr.push({
+										"delayDirection": direction,
+										"delayedTrain": el.children[0].data,
+										"delayLength": el.children[2].data,
+										"delayStatus": el.children[4].data
+									});
+								});
+							}
+							// details = $(statusPopovers[j.toString()]).find('li > span');
 
-	    		request(moreInfoURL, function(error, response, html) {
-	    			if (!error) {
-					    var $ = cheerio.load(html);
-					    var content = $('#divupdates_train .MsgGroup');
-					    var msgTitles = $(content).find('h2');
-
-					    for (var l = 0; l < names.length; l++) {
-					    	// If name of train with "more information" matches
-					    	// name of retrieved <h2>, we're on the right info page
-					    	if (names[l] === $(msgTitles[l.toString()]).text()) {
-						    	statusArr.push({
-							    	"delayMsg": $(content).find('li').text()
-							    });
-						    }
-						    else {
-						    	statusArr.push({
-							    	"delayMsg": ""
-							    });
-						    }
-					    }
-					  }
-	    		});
-	    	}
-
-	    	// Push retrieved train line info
-	    	// to trains array
-	    	trainsArr.push({
-	    		"name": name,
-	    		"status": status,
-	    		"direction": direction,
-	    		"details": statusArr
-	    	});
-	    }
-    }
-    res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
+							// for (var k = 0; k < details.length; k++) {
+							// 	// Iterate through known delays,
+							// 	// save their data to statusArr[]
+							// 	var detail = details[k.toString()];
+								
+							// } 
+						}
+					}
+				}
 				else if (bigDelay.length > 0) {
 					names.push(name);
 					status = "Delayed";
