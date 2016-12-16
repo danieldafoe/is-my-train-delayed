@@ -127,7 +127,6 @@ app.get('/', function(req, res) {
 				trainsArr.push({
 					"name": name,
 					"status": status,
-					"direction": direction,
 					"details": statusArr
 				});
 			}
