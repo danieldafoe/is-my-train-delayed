@@ -35,7 +35,6 @@ app.get('/', function(req, res) {
 
 			for (var i = 0; i < trains.length; i++) {
 				name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
-				// console.log(name);
 				
 				// Set default status to On time
 				status = "On time";
@@ -52,56 +51,36 @@ app.get('/', function(req, res) {
 
 					// If the current retrieved train line is delayed,
 					// find info about it
-					var statusText, direction, details, delays;
+					var statusText, direction, details;
 					var statusArr = [];
-					var statusPopovers = $(trains[i.toString()]).find('.messageDisrp');
+					// Find all directions there are delays for
+					var delayDirections = $(trains[i.toString()]).find('.messageDisrp .subtitle');
 
-					for (var j = 0; j < statusPopovers.length; j++) {
-						// Does the found delay title match the current line name?
-						if ($(statusPopovers[j.toString()]).find('h3').text() === name) {
-							// Find all direction titles
-							// If this is greater than 1, there are delays
-							// in both directions
-							directions = $(statusPopovers[j.toString()]).find('.subtitle');
-							console.log(directions);
+					for (var j = 0; j < delayDirections.length; j++) {
+						direction = $(delayDirections[j.toString()]).find('h4').text();
+						// Get all next sibling <li> elements that are not
+						// another node with a directional title
+						delay = $(delayDirections[j.toString()]).nextUntil('.subtitle');
 
-							// Iterate through directions that have delays
-							for (var m = 0; m < directions.length; m++) {
-								direction = $(directions[m.toString()]).find('h4').text();
-								console.log(direction);
-								// Get all next sibling <li> elements that are not
-								// another node with a directional title
-								delay = $(directions[m.toString()]).first().nextUntil('.subtitle');
-
-								// Iterate through spans within each delay
-								// and get delay information
-								$(delay).find('span').each(function(i, el) {
-									// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
-									// Counts text as an Object?
-									// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
-									// [1] = <br>
-									// [2] = Length of delay (e.x., Delay of 7m:53s)
-									// [3] = <br>
-									// [4] = State of train (e.x., Moving)
-									// [5] = <br>
-									// [6] = Additional state of train (e.x., Waiting on a train ahead)
-									statusArr.push({
-										"delayDirection": direction,
-										"delayedTrain": el.children[0].data,
-										"delayLength": el.children[2].data,
-										"delayStatus": el.children[4].data
-									});
-								});
-							}
-							// details = $(statusPopovers[j.toString()]).find('li > span');
-
-							// for (var k = 0; k < details.length; k++) {
-							// 	// Iterate through known delays,
-							// 	// save their data to statusArr[]
-							// 	var detail = details[k.toString()];
-								
-							// } 
-						}
+						// Iterate through <span> within each delay
+						// and get delay information
+						$(delay).find('span').each(function(i, el) {
+							// Data within the <span>. Contains up to 7 children. (As of 12/01/2016)
+							// Counts text as an Object?
+							// [0] = Which train time is delayed (e.x., Union Station 22:13 - Aldershot GO 23:31)
+							// [1] = <br>
+							// [2] = Length of delay (e.x., Delay of 7m:53s)
+							// [3] = <br>
+							// [4] = State of train (e.x., Moving)
+							// [5] = <br>
+							// [6] = Additional state of train (e.x., Waiting on a train ahead)
+							statusArr.push({
+								"delayDirection": direction,
+								"delayedTrain": el.children[0].data,
+								"delayLength": el.children[2].data,
+								"delayStatus": el.children[4].data
+							});
+						});
 					}
 				}
 				else if (bigDelay.length > 0) {
