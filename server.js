@@ -35,7 +35,6 @@ app.get('/', function(req, res) {
 
 			for (var i = 0; i < trains.length; i++) {
 				name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
-				// console.log(name);
 				
 				// Set default status to On time
 				status = "On time";
@@ -56,7 +55,6 @@ app.get('/', function(req, res) {
 					var statusArr = [];
 					// Find all directions there are delays for
 					var delayDirections = $(trains[i.toString()]).find('.messageDisrp .subtitle');
-					console.log(delayDirections.length);
 
 					for (var j = 0; j < delayDirections.length; j++) {
 						direction = $(delayDirections[j.toString()]).find('h4').text();
@@ -83,7 +81,6 @@ app.get('/', function(req, res) {
 								"delayStatus": el.children[4].data
 							});
 						});
-						console.log(statusArr[j]);
 					}
 				}
 				else if (bigDelay.length > 0) {
