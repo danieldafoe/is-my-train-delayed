@@ -1,25 +1,33 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'app/js');
-var APP_DIR = path.resolve(__dirname, 'js');
+const BUILD_DIR = path.resolve(__dirname, 'app/js');
+const APP_DIR = path.resolve(__dirname, 'js');
 
 var config = {
   debug: true,
-  entry: APP_DIR + '/app.js',
+  devtool: 'cheap-module-source-map',
+  entry: BUILD_DIR + '/app.js',
   module: {
   	loaders: [
   		{
   			test : /\.jsx?/,
-        include : APP_DIR,
+        include : BUILD_DIR,
         loader : 'babel'
   		}
   	]
-  }
+  },
   output: {
-    path: BUILD_DIR,
+    path: APP_DIR,
     filename: 'app.js'
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
+  ],
 };
 
 module.exports = config;
