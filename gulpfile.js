@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const pump = require('pump');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
+const wp = require('webpack');
 const webpack = require('webpack-stream');
 const uglify = require('gulp-uglify');
 
@@ -35,12 +36,20 @@ gulp.task('sass', () => {
 gulp.task('js', function() {
   return gulp.src(config.js.src)
   .pipe(webpack({
+    devtool: 'cheap-module-source-map',
     watch: true,
     module: {
       loaders: [
         { test: /\.jsx?/, loader: 'babel' },
       ],
     },
+    plugins: [
+      new wp.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production')
+        }
+      })
+    ],
   }))
   .pipe(rename(function(path) {
     path.basename = 'app'
