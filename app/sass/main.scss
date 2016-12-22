@@ -30,6 +30,9 @@ $ff-sans: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", A
 	width: 1px;
 	height: 1px;
 }
+.attribution {
+	font-size: 80%;
+}
 * {
 	box-sizing: border-box;
 }
@@ -63,12 +66,17 @@ main {
 }
 footer {
 	@include flexbox();
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	margin: 2rem 0 0;
-	padding: 1rem;
+	padding: 1.5rem 1rem;
 	font-size: 1.8rem;
 	background-color: lighten($clr-footer-bg, 25%);
+
+	p {
+		margin: 0;
+	}
 }
 table {
 	border-collapse: collapse;
