@@ -144,6 +144,24 @@ h2 {
 a {
 	color: $clr-link;
 }
+svg {
+	&:not(:root) {
+		overflow: hidden;
+	}
+}
+
+//
+// Icons
+// --------------------------------------------------------------------------
+.icon {
+	width: 2rem;
+	height: 2rem;
+	vertical-align: bottom;
+}
+.icon--refresh {
+	fill: #fff;
+	margin-right: .5rem;
+}
 
 
 //
