@@ -110,7 +110,7 @@
 	    key: 'handleRefresh',
 	    value: function handleRefresh() {
 	      // Spin the loader
-	      document.querySelector('.train-info__actions button svg').classList.add('spin');
+	      // document.querySelector('.train-info__actions button svg').classList.add('spin');
 
 	      var oReq = new XMLHttpRequest();
 
@@ -455,7 +455,7 @@
 	  var refreshBtn = document.querySelector('.train-info__actions button');
 
 	  trainInfo.addEventListener('click', function (e) {
-	    handleDelayInfoClick(e);
+	    handleDelayInfoClick.call(this, e);
 	  });
 	  refreshBtn.addEventListener('click', function (e) {
 	    handleDataFetch(e);
@@ -469,7 +469,10 @@
 	    } else {
 	      event.target.parentElement.parentElement.nextSibling.classList.add('delay-info--show');
 	    }
+
+	    this.removeEventListener('click', handleDelayInfoClick);
 	  };
+
 	  function handleDataFetch(event) {
 	    event.preventDefault();
 	    handleRefresh();

@@ -40,7 +40,7 @@ class TrainInfo extends React.Component {
 
   handleRefresh() {
     // Spin the loader
-    document.querySelector('.train-info__actions button svg').classList.add('spin');
+    // document.querySelector('.train-info__actions button svg').classList.add('spin');
 
     var oReq = new XMLHttpRequest();
 
@@ -218,34 +218,53 @@ class SiteInfo extends React.Component {
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-	var trainInfo = document.querySelector('.train-info');
+  var trainInfo = document.querySelector('.train-info');
+  var refreshBtn = document.querySelector('.train-info__actions button');
 
-	trainInfo.addEventListener('click', function(e) {
-		handleDelayInfoClick(e);
-	});
+  trainInfo.addEventListener('click', function(e) {
+    handleDelayInfoClick.call(this, e);
+  });
+  refreshBtn.addEventListener('click', function(e) {
+    handleDataFetch(e);
+  });
 
-	function handleDelayInfoClick(event) {
-		event.preventDefault();
+  function handleDelayInfoClick(event) {
+    event.preventDefault();
 
-		if (event.target.parentElement.parentElement.nextSibling.classList.contains('delay-info--show')) {
-			event.target.parentElement.parentElement.nextSibling.classList.remove('delay-info--show')
-		}
-		else {
-			event.target.parentElement.parentElement.nextSibling.classList.add('delay-info--show');
-		}
-	}
-	// function handleRefresh() {
-	// 	var oReq = new XMLHttpRequest();
-	// 	oReq.addEventListener("load", handleResponse);
-	// 	oReq.open("GET", "http://localhost:5000/fetch");
-	// 	oReq.send();
-	// }
-	// function handleResponse(res) {
-	// 	console.log(res);
-	// 	var data = JSON.parse(res.target.response);
-	// 	if (res.target.status === 200) {
-	// 		// OK
-			
-	// 	}
-	//}
+    if (event.target.parentElement.parentElement.nextSibling.classList.contains('delay-info--show')) {
+      event.target.parentElement.parentElement.nextSibling.classList.remove('delay-info--show')
+    }
+    else {
+      event.target.parentElement.parentElement.nextSibling.classList.add('delay-info--show');
+    }
+
+    this.removeEventListener('click', handleDelayInfoClick);
+  };
+
+  function handleDataFetch(event) {
+    event.preventDefault();
+    handleRefresh();
+  };
+
+  function handleRefresh() {
+    var oReq = new XMLHttpRequest();
+
+    oReq.addEventListener("load", handleResponse);
+    oReq.addEventListener("error", handleResponse);
+    oReq.addEventListener("timeout", handleResponse);
+
+    oReq.open("GET", "http://127.0.0.1:5001/fetch");
+    oReq.send();
+  };
+
+  function handleResponse(res) {
+    var data = JSON.parse(res.target.response);
+    if (res.target.status === 200) {
+      renderData(data);
+    }
+  };
+
+  function renderData(data) {
+    ReactDOM.render(<TrainInfo data={data} />, document.getElementById('train-info'));
+  };
 }
