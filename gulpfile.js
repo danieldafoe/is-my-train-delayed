@@ -1,7 +1,9 @@
-var gulp = require('gulp');
-var pump = require('pump');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
+const gulp = require('gulp');
+const pump = require('pump');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
+const webpack = require('webpack-stream');
+const uglify = require('gulp-uglify');
 
 var config = {
 	"pug": {
