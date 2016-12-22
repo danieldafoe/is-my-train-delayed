@@ -118,7 +118,7 @@
 	      oReq.addEventListener("error", this.handleResponse);
 	      oReq.addEventListener("timeout", this.handleResponse);
 
-	      oReq.open("GET", "http://127.0.0.1:5001/fetch");
+	      oReq.open("GET", "http://www.ismytraindelayed.today/fetch");
 	      oReq.send();
 	    }
 	  }, {
@@ -379,7 +379,7 @@
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'Fair question. Since the purpose of this application is to do one thing and do it well, it comes with a rather minimal data usage footprint. While visiting the GO website can cost your data plan ~824KB each time, this site uses just ~20KB\u2014that\'s a savings of 97.5%.'
+	          'Fair question. The short answer is: impact to your data plan; the longer one is: after the initial load of this page, it will cost your data plan ~1.3KB to refresh and get the most up-to-date data. Even the first time you load this page costs less data than the GO Transit website.'
 	        ),
 	        _react2.default.createElement(
 	          'h2',
@@ -485,7 +485,7 @@
 	    oReq.addEventListener("error", handleResponse);
 	    oReq.addEventListener("timeout", handleResponse);
 
-	    oReq.open("GET", "http://127.0.0.1:5001/fetch");
+	    oReq.open("GET", "http://www.ismytraindelayed.today/fetch");
 	    oReq.send();
 	  };
 
