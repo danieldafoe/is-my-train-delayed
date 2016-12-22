@@ -32,14 +32,20 @@ gulp.task('sass', () => {
 	.pipe(gulp.dest(config.sass.dest))
 });
 
-gulp.task('js', (cb) => {
-	pump([
-        gulp.src(config.js.src),
-        uglify(),
-        gulp.dest(config.js.dest)
-    ],
-    cb
-  );
+gulp.task('js', function() {
+	return gulp.src(config.js.src)
+	.pipe(webpack({
+		watch: true,
+		module: {
+      loaders: [
+        { test: /\.jsx?/, loader: 'babel' },
+      ],
+    },
+	}))
+	.pipe(rename(function(path) {
+		path.basename = 'app'
+	}))
+	.pipe(gulp.dest('./js/'));
 });
 
 gulp.task('watch', () => {
