@@ -18,6 +18,7 @@ class TrainInfo extends React.Component {
     this.handleRefresh = this.handleRefresh.bind(this);
     this.handleResponse = this.handleResponse.bind(this);
     this.toggleDelayInfo = this.toggleDelayInfo.bind(this);
+    this.formatDate = this.formatDate.bind(this);
   }
   componentWillMount() {
 
@@ -25,6 +26,35 @@ class TrainInfo extends React.Component {
 
   componentDidMount() {
     
+  }
+
+  formatDate(date) {
+    let d = '';
+
+    if (date.getHours() > 12) {
+      d += date.getHours() - 12 + ':';
+    }
+    else {
+      d += date.getHours().toString() + ':';
+    }
+
+    if (date.getMinutes() < 10) {
+      d += '0' + date.getMinutes().toString() + ':';
+    }
+    else {
+      d += date.getMinutes().toString() + ':'; 
+    }
+
+    if (date.getSeconds() < 10) {
+      d += '0' + date.getSeconds().toString();
+    }
+    else {
+      d += date.getSeconds().toString();
+    }
+
+    d += (date.getHours() > 12 ? ' PM' : ' AM');
+
+    return d;
   }
 
   toggleDelayInfo(event) {
@@ -65,6 +95,8 @@ class TrainInfo extends React.Component {
 
   render() {
     let trains = this.props.data.trains;
+    let retrieveTime = this.formatDate(new Date());
+
     const trainLines = trains.map((train) =>
       <tbody key={train.name.toString()}>
         <tr>
@@ -97,7 +129,7 @@ class TrainInfo extends React.Component {
           </table>
           <div className='train-info__last-retrieved'>
             <p>
-              Last refreshed: {this.props.data.retrieveTime}
+              Last refreshed: {retrieveTime}
             </p>
           </div>
           <div className='train-info__actions'>
