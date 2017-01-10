@@ -78,7 +78,7 @@ tbody tr {
     padding: 1rem 1.5rem; } }
 
 tbody td:nth-child(2) {
-  padding: 1rem 3rem 1rem 1rem;
+  padding: 1rem 3rem 1rem 2rem;
   font-weight: 600; }
 
 tbody td:last-child {

@@ -18,6 +18,14 @@ $clr-link: #7791C1;
 $clr-title: #7791C1;
 $clr-footer-bg: #7791C1;
 
+$line-ls-east: hsl(5, 86%, 60%);
+$line-ls-west: hsl(5, 62%, 40%);
+$line-milton: hsl(37, 77%, 59%);
+$line-kitchener: hsl(142, 60%, 46%);
+$line-barrie: hsl(230, 65%, 55%);
+$line-richmond: hsl(201, 78%, 55%);
+$line-stouffville: hsl(34, 44%, 36%);
+
 $ff-sans: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
 
 //
@@ -100,7 +108,7 @@ tbody {
 			}
 		}
 		&:nth-child(2) {
-			padding: 1rem 3rem 1rem 1rem;
+			padding: 1rem 3rem 1rem 2rem;
 			font-weight: 600;
 		}
 		&:last-child {
@@ -168,26 +176,26 @@ svg {
 // --------------------------------------------------------------------------
 .spin {
   -webkit-animation: spin 2s infinite linear;
-          animation: spin 2s infinite linear;
+		  animation: spin 2s infinite linear;
 }
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
+	-webkit-transform: rotate(359deg);
+			transform: rotate(359deg);
   }
 }
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(359deg);
-            transform: rotate(359deg);
+	-webkit-transform: rotate(359deg);
+			transform: rotate(359deg);
   }
 }
 
