@@ -23,7 +23,7 @@ html(lang='en' charset='utf-8')
             tbody
               if trains.length
                 each train in trains
-                  tr
+                  tr(data-symbol=train.id)
                     td #[span.status-circle(class= train.status === "Delayed" ? "delayed" : "on-time")]
                     td= train.name
                     if train.status === "Delayed"

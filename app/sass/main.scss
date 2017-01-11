@@ -92,6 +92,17 @@ td {
 tbody {
 	tr {
 		border-bottom: 1px solid #ddd;
+        &[data-symbol] {
+            border-left-width: 6px;
+            border-left-style: solid;
+        }
+        &[data-symbol="LW"] { border-left-color: #98002e }
+        &[data-symbol="LE"] { border-left-color: #ee3124 }
+        &[data-symbol="GT"] { border-left-color: #00853f }
+        &[data-symbol="ST"] { border-left-color: #794400 }
+        &[data-symbol="RH"] { border-left-color: #009ac7 }
+        &[data-symbol="BR"] { border-left-color: #003768 }
+        &[data-symbol="MI"] { border-left-color: #f58025 }
 	}
 	td {
 		&:first-of-type {

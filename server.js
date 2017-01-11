@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
 	// Supply formatted, scraped data to render of pug
 	request(url, function(error, response, html) {
 		if (!error) {
-			var name, status, smallDelay, bigDelay;
+			var id, name, status, smallDelay, bigDelay;
 			var names = [];
 			var $ = cheerio.load(html);
 			timestamp = $('.timestamp div span').html();
@@ -35,6 +35,7 @@ app.get('/', function(req, res) {
 
 			for (var i = 0; i < trains.length; i++) {
 				name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
+				id = $(trains[i.toString()]).data('symbol');
 				
 				// Set default status to On time
 				status = "On time";
@@ -125,6 +126,7 @@ app.get('/', function(req, res) {
 				// Push retrieved train line info
 				// to trains array
 				trainsArr.push({
+					"id": id,
 					"name": name,
 					"status": status,
 					"details": statusArr
