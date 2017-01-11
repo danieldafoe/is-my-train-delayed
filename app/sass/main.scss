@@ -108,8 +108,21 @@ tbody {
 			}
 		}
 		&:nth-child(2) {
-			padding: 1rem 3rem 1rem 2rem;
+			padding: 1rem 3rem 1rem 1rem;
 			font-weight: 600;
+
+            span {
+				padding: 3px 10px;
+				color: #FFF;
+
+                &.Lakeshore-West { background: $line-ls-west; }
+	            &.Lakeshore-East { background: $line-ls-east; }
+	            &.Kitchener { background: $line-kitchener; }
+	            &.Stouffville { background: $line-stouffville; }
+	            &.Richmond-Hill { background: $line-richmond; }
+	            &.Barrie { background: $line-barrie; }
+	            &.Milton { background: $line-milton; }
+            }
 		}
 		&:last-child {
 			text-align: center;

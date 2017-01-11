@@ -78,8 +78,25 @@ tbody tr {
     padding: 1rem 1.5rem; } }
 
 tbody td:nth-child(2) {
-  padding: 1rem 3rem 1rem 2rem;
+  padding: 1rem 3rem 1rem 1rem;
   font-weight: 600; }
+  tbody td:nth-child(2) span {
+    padding: 3px 10px;
+    color: #FFF; }
+    tbody td:nth-child(2) span.Lakeshore-West {
+      background: #a53127; }
+    tbody td:nth-child(2) span.Lakeshore-East {
+      background: #f15041; }
+    tbody td:nth-child(2) span.Kitchener {
+      background: #2fbc63; }
+    tbody td:nth-child(2) span.Stouffville {
+      background: #846133; }
+    tbody td:nth-child(2) span.Richmond-Hill {
+      background: #33a7e6; }
+    tbody td:nth-child(2) span.Barrie {
+      background: #425bd7; }
+    tbody td:nth-child(2) span.Milton {
+      background: #e7a946; }
 
 tbody td:last-child {
   text-align: center; }

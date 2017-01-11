@@ -25,7 +25,7 @@ class TrainInfo extends React.Component {
   }
 
   componentDidMount() {
-    
+
   }
 
   formatDate(date) {
@@ -42,7 +42,7 @@ class TrainInfo extends React.Component {
       d += '0' + date.getMinutes().toString() + ':';
     }
     else {
-      d += date.getMinutes().toString() + ':'; 
+      d += date.getMinutes().toString() + ':';
     }
 
     if (date.getSeconds() < 10) {
@@ -101,7 +101,7 @@ class TrainInfo extends React.Component {
       <tbody key={train.name.toString()}>
         <tr>
           <td><span className={'status-circle ' + (train.status === "Delayed" ? "delayed" : "on-time")}></span></td>
-          <td>{train.name}</td>
+          <td><span className={train.name.replace(/\s/g,'-')}>{train.name}</span></td>
           {train.status === "Delayed" &&
             <td>
               <a className='delay-info-expand' href='' onClick={this.toggleDelayInfo}>{train.status}</a>
@@ -115,7 +115,7 @@ class TrainInfo extends React.Component {
               </td>
           }
         </tr>
-        {train.status === "Delayed" &&          
+        {train.status === "Delayed" &&
           <TrainDelayRow delays={train.details} />
         }
       </tbody>
@@ -208,14 +208,14 @@ class SiteInfo extends React.Component {
       <div className='site-info' role='contentinfo' aria-label='Information about Is My Train Delayed?'>
         <h2>How does this work?</h2>
         <p>
-          This application uses the official GO Transit website to get its data. Whatever the GO 
+          This application uses the official GO Transit website to get its data. Whatever the GO
           Transit website shows for train delays is what this site will show.
         </p>
 
         <h2>So why use this over GO Transit?</h2>
         <p>
-          Fair question. The short answer is: impact to your data plan; the longer one is: after the initial 
-          load of this page, it will cost your data plan ~1.3KB to refresh and get the most up-to-date data. 
+          Fair question. The short answer is: impact to your data plan; the longer one is: after the initial
+          load of this page, it will cost your data plan ~1.3KB to refresh and get the most up-to-date data.
           Even the first time you load this page costs less data than the GO Transit website.
         </p>
 

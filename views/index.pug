@@ -25,7 +25,8 @@ html(lang='en' charset='utf-8')
                 each train in trains
                   tr
                     td #[span.status-circle(class= train.status === "Delayed" ? "delayed" : "on-time")]
-                    td= train.name
+                    td
+                        span(class=train.name.replace(/\s/g,'-'))=train.name
                     if train.status === "Delayed"
                       td.
                         #[a.delay-info-expand(href='') #{train.status}]
