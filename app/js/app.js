@@ -254,7 +254,12 @@ function init() {
   var refreshBtn = document.querySelector('.train-info__actions button');
 
   trainInfo.addEventListener('click', function(e) {
-    handleDelayInfoClick.call(this, e);
+    if (e.target.classList.contains('delay-info-expand')) {
+      handleDelayInfoClick.call(this, e);
+    }
+    else {
+      return true;
+    }
   });
   refreshBtn.addEventListener('click', function(e) {
     handleDataFetch(e);
