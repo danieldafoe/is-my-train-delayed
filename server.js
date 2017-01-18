@@ -226,6 +226,16 @@ app.get('/fetch', (req, res) => {
 	});
 });
 
+//
+// Handle Errors
+// --------------------------------------------------------------------------
+app.use((err, req, res, next) => {
+  res.status(500).send('Internal Server Error');
+});
+app.use((req, res, next) => {
+	res.status(404);
+	res.render('404');
+});
 
 app.listen(process.env.PORT || 5000);
 
