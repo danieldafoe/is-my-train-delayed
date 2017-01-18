@@ -46,6 +46,7 @@ body {
 	overflow-x: hidden;
 	width: 100%;
 	margin: 0;
+	line-height: 1.47;
 	font-size: 1.4rem;
 	font-family: $ff-sans;
 	color: #333;
@@ -262,6 +263,9 @@ svg {
 		max-width: 80%;
 		margin: 5rem auto 0;
 		padding: 0;
+	}
+	li {
+		margin-bottom: 1rem;
 	}
 }
 
