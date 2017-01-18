@@ -20,6 +20,7 @@ body {
   overflow-x: hidden;
   width: 100%;
   margin: 0;
+  line-height: 1.47;
   font-size: 1.4rem;
   font-family: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
   color: #333;
@@ -203,6 +204,8 @@ svg:not(:root) {
       max-width: 80%;
       margin: 5rem auto 0;
       padding: 0; } }
+  .site-info li {
+    margin-bottom: 1rem; }
 
 .train-info {
   margin: 3rem auto 0; }
