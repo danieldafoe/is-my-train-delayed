@@ -226,26 +226,16 @@ app.get('/fetch', (req, res) => {
 	});
 });
 
-app.trainsAreDelayed = function() {
-	var url = 'http://www.gotransit.com/publicroot/en/default.aspx';
-
-  request(url, function(error, response, html) {
-      if (!error) {
-          // Next, we'll utilize the cheerio library on the returned html which will essentially give us jQuery functionality
-          var $ = cheerio.load(html);
-          var trains = $('.gridStatusTrain tbody tr');
-          var trainsDelayed = trains.has('.delayLink');
-
-          // If trainsDelayed.length is 0, none are delayed
-          if (trainsDelayed.length === 0) {
-          	return false;
-          }
-          else {
-          	return true;
-          }
-      }
-  });
-}
+//
+// Handle Errors
+// --------------------------------------------------------------------------
+app.use((err, req, res, next) => {
+  res.status(500).send('Internal Server Error');
+});
+app.use((req, res, next) => {
+	res.status(404);
+	res.render('404');
+});
 
 app.listen(process.env.PORT || 5000);
 

@@ -1,0 +1,26 @@
+doctype html
+html(lang='en' charset='utf-8')
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Page Not Found - 404 - Is My Train Delayed?
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans")
+    link(rel="stylesheet" href="css/main.css")
+
+  body
+    .wrapper.wrapper--error
+      h1 Page Not Found.
+      .error-page-visual
+        span.error-page-train &#x1F682
+      p.
+        Just like delay-free commuting, the page you were looking for doesn't exist.
+      p.
+        Please check the URL you entered and try again. If this continues to happen, #[a(href='https://twitter.com/danieldafoe') tweet me].
+
+      .error-page-safety
+        p.
+          #[a(href='http://www.ismytraindelayed.today') Go back to Is My Train Delayed.]
+
+    script.
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.error-page-train').classList.add('move-train');
+      });
