@@ -222,16 +222,18 @@ class SiteInfo extends React.Component {
         <h2>Coming Soon</h2>
         <ul>
           <li>
-            <strong>Auto Refresh: </strong>
-            Turn on Auto Fetch to make IMTD? automatically update information every 5 minutes.
+            <strong>Improved Accessibility: </strong>
+            Better code to support screen readers, as well as interactions and design that better 
+            accommodate everyone who may use this application.
+          </li>
+          <li>
+            <strong>Metadata Tagging: </strong>
+            Information that will show when searching for train delays using Google. Similar to the 
+            visuals and info you see in Google search results without clicking on a result. 
           </li>
           <li className='goal-complete'>
             <strong>Manual Refresh: </strong>
             Click or touch the Refresh button to get the latest train delays--no more page refreshing.
-          </li>
-          <li className='goal-complete'>
-            <strong>Delay Information: </strong>
-            Get additional delay information (e.x., Length of delay, direction).
           </li>
         </ul>
 
@@ -254,7 +256,12 @@ function init() {
   var refreshBtn = document.querySelector('.train-info__actions button');
 
   trainInfo.addEventListener('click', function(e) {
-    handleDelayInfoClick.call(this, e);
+    if (e.target.classList.contains('delay-info-expand')) {
+      handleDelayInfoClick.call(this, e);
+    }
+    else {
+      return true;
+    }
   });
   refreshBtn.addEventListener('click', function(e) {
     handleDataFetch(e);
