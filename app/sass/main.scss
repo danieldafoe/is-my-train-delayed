@@ -10,6 +10,7 @@
 //
 // Variables
 // --------------------------------------------------------------------------
+$clr-error: #fa0001;
 $clr-on-time: #29f442;
 $clr-delayed: #fa0001;
 $clr-body-bg: #fff;
@@ -204,6 +205,31 @@ svg {
 		max-width: 100%;
 		width: 100%;
 	}
+	&--error {
+
+		@media (max-width: 480px) {
+			max-width: 85%;
+			text-align: left;
+		}
+		.error-page-visual {
+			z-index: 0;
+			position: relative;
+			padding: 2rem 0;
+		}
+		h1 {
+			margin: 0;
+			padding-top: 2em;
+			font-size: 5vmax;
+			color: $clr-error;
+		}
+		p {
+			font-size: 110%;
+
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+	}
 }
 .on-time {
 	background-color: $clr-on-time;
@@ -317,4 +343,39 @@ svg {
 // --------------------------------------------------------------------------
 .goal-complete {
 	text-decoration: line-through;
+}
+
+//
+// Errors
+// --------------------------------------------------------------------------
+.error-page {
+	&-safety {
+		margin: 4em 0 0;
+	}
+	&-train {
+		@include transform(rotateY(-180deg));
+		font-size: 7.5vmax;
+	}
+}
+
+.move-train {
+	display: block;
+	-webkit-animation: move-train 10s 0s linear infinite;
+	animation: move-train 5s 0s linear infinite;
+}
+@-webkit-keyframes move-train {
+	0% {
+		@include transform(translateX(-150%) rotateY(180deg));
+	}
+	100% {
+		@include transform(translateX(100%) rotateY(180deg));
+	}
+}
+@keyframes move-train {
+	0% {
+		@include transform(translateX(-150%) rotateY(180deg));
+	}
+	100% {
+		@include transform(translateX(100%) rotateY(180deg));
+	}
 }
