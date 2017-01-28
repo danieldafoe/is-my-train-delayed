@@ -11,6 +11,12 @@ app.set('views', './views')
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, '/')));
 
+// Allow requests from any domain - to solve a CORS bug.
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // Retrieve and return GO train data.
 function getTrainData (callback) {
