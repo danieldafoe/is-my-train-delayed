@@ -25,11 +25,14 @@ $ff-sans: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", A
 // Globals
 // --------------------------------------------------------------------------
 .accessible {
+	overflow: hidden;
 	position: absolute;
 	text-indent: -1000px;
-	clip: rect(0,0,0);
+	clip: rect(0, 0, 0, 0);
 	width: 1px;
 	height: 1px;
+	margin: -1px;
+	border: 0;
 }
 .attribution {
 	font-size: 80%;
