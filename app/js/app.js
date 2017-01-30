@@ -271,6 +271,10 @@ function init() {
   function handleDelayInfoClick(event) {
     event.preventDefault();
 
+    // Set button's state to expanded
+    var toggleState = event.target.attributes['aria-expanded'].value === 'true' ? 'false' : 'true';
+    event.target.setAttribute('aria-expanded', toggleState);
+
     if (event.target.parentElement.parentElement.nextSibling.classList.contains('delay-info--show')) {
       event.target.parentElement.parentElement.nextSibling.classList.remove('delay-info--show')
     }
