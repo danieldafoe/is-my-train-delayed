@@ -30,7 +30,7 @@ html(lang='en' charset='utf-8')
                     td= train.name
                     if train.status === "Delayed"
                       td.
-                        #[a.delay-info-expand(href='') #{train.status}]
+                        #[button.delay-info-expand(aria-expanded='false' type='button' title='Click to expand and get more information about this delay') #{train.status} #[span.accessible - #{train.name}]]
                         #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined)]
                     else
                       td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined)]
