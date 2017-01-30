@@ -42,7 +42,7 @@ html(lang='en' charset='utf-8')
                           each delay in train.details
                             .delay
                               if delay.delayMsg
-                                span.delayinfo__msg #[a(href=delay.delayMsg) More information]
+                                span.delayinfo__msg #[a(href=delay.delayMsg title='Opens the GO Transit website to get more information about this delay') More information]
                               else
                                 span.delay-info__direction !{delay.delayDirection}
                                 span.delay-info__train !{delay.delayedTrain}
