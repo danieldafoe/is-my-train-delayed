@@ -25,11 +25,14 @@ $ff-sans: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", A
 // Globals
 // --------------------------------------------------------------------------
 .accessible {
+	overflow: hidden;
 	position: absolute;
 	text-indent: -1000px;
-	clip: rect(0,0,0);
+	clip: rect(0, 0, 0, 0);
 	width: 1px;
 	height: 1px;
+	margin: -1px;
+	border: 0;
 }
 .attribution {
 	font-size: 80%;
@@ -318,6 +321,29 @@ svg {
 	span {
 		display: block;
 	}
+	&-expand {
+		height: auto;
+		width: auto;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		text-decoration: underline;
+		color: $clr-link;
+		background-color: transparent;
+
+		&:hover,
+		&:active,
+		&:focus {
+			border: 0;
+			border-radius: 0;
+			box-shadow: none;
+			text-decoration: underline;
+			color: $clr-link;
+			background-color: transparent;
+		}
+	}
 	&__direction,
 	&__train,
 	&__length,
@@ -340,13 +366,6 @@ svg {
 	height: 1.25rem;
 	width: 1.25rem;
 	border-radius: 50%;
-}
-
-//
-// Goals
-// --------------------------------------------------------------------------
-.goal-complete {
-	text-decoration: line-through;
 }
 
 //

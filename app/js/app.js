@@ -104,7 +104,7 @@ class TrainInfo extends React.Component {
           <td>{train.name}</td>
           {train.status === "Delayed" &&
             <td>
-              <a className='delay-info-expand' href='' onClick={this.toggleDelayInfo}>{train.status}</a>
+              <button type='button' className='delay-info-expand' title='Click to expand and get more information about this delay' onClick={this.toggleDelayInfo}>{train.status} <span className='accessible'>- {train.name}</span></button>
               <span className={"delayed-msg " + (train.status === "On time" ? "delayed-msg--hidden" : undefined)}></span>
             </td>
           }
@@ -121,9 +121,10 @@ class TrainInfo extends React.Component {
       </tbody>
     );
     return (
-      <main id='train-info'>
-        <section className='train-info' aria-label='Train information'>
+      <main id='train-info' aria-label='Train information'>
+        <div className='train-info'>
           <table>
+            <caption className='accessible'>Train status information</caption>
             <TrainInfoHeader />
             {trainLines}
           </table>
@@ -152,7 +153,7 @@ class TrainInfo extends React.Component {
               Refresh
             </button>
           </div>
-        </section>
+        </div>
         <SiteInfo />
       </main>
     )
@@ -179,7 +180,7 @@ class TrainDelayRow extends React.Component {
       <div className='delay' key={delay.toString() + Math.random()}>
         {delay.delayMsg !== undefined &&
           <span className='delayinfo__msg'>
-            <a href={delay.delayMsg}>More information</a>
+            <a href={delay.delayMsg} title='Opens the GO Transit website to get more information about this delay'>More information</a>
           </span>
         }
         {delay.delayMsg === undefined &&
@@ -269,6 +270,10 @@ function init() {
 
   function handleDelayInfoClick(event) {
     event.preventDefault();
+
+    // Set button's state to expanded
+    var toggleState = event.target.attributes['aria-expanded'].value === 'true' ? 'false' : 'true';
+    event.target.setAttribute('aria-expanded', toggleState);
 
     if (event.target.parentElement.parentElement.nextSibling.classList.contains('delay-info--show')) {
       event.target.parentElement.parentElement.nextSibling.classList.remove('delay-info--show')

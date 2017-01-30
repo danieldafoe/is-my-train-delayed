@@ -1,9 +1,12 @@
 .accessible {
+  overflow: hidden;
   position: absolute;
   text-indent: -1000px;
-  clip: rect(0, 0, 0);
+  clip: rect(0, 0, 0, 0);
   width: 1px;
-  height: 1px; }
+  height: 1px;
+  margin: -1px;
+  border: 0; }
 
 .attribution {
   font-size: 80%; }
@@ -236,6 +239,24 @@ svg:not(:root) {
     padding: 0; }
   .delay-info span {
     display: block; }
+  .delay-info-expand {
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-decoration: underline;
+    color: #7791C1;
+    background-color: transparent; }
+    .delay-info-expand:hover, .delay-info-expand:active, .delay-info-expand:focus {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      text-decoration: underline;
+      color: #7791C1;
+      background-color: transparent; }
   .delay-info__direction, .delay-info__train, .delay-info__length, .delay-info__status {
     font-size: 75%; }
   .delay-info__train {
@@ -248,9 +269,6 @@ svg:not(:root) {
   height: 1.25rem;
   width: 1.25rem;
   border-radius: 50%; }
-
-.goal-complete {
-  text-decoration: line-through; }
 
 .error-page-safety {
   margin: 4em 0 0; }
