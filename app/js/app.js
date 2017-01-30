@@ -121,9 +121,10 @@ class TrainInfo extends React.Component {
       </tbody>
     );
     return (
-      <main id='train-info'>
-        <section className='train-info' aria-label='Train information'>
+      <main id='train-info' aria-label='Train information'>
+        <div className='train-info'>
           <table>
+            <caption className='accessible'>Train status information</caption>
             <TrainInfoHeader />
             {trainLines}
           </table>
@@ -152,7 +153,7 @@ class TrainInfo extends React.Component {
               Refresh
             </button>
           </div>
-        </section>
+        </div>
         <SiteInfo />
       </main>
     )
