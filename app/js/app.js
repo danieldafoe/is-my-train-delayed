@@ -180,7 +180,7 @@ class TrainDelayRow extends React.Component {
       <div className='delay' key={delay.toString() + Math.random()}>
         {delay.delayMsg !== undefined &&
           <span className='delayinfo__msg'>
-            <a href={delay.delayMsg}>More information</a>
+            <a href={delay.delayMsg} title='Opens the GO Transit website to get more information about this delay'>More information</a>
           </span>
         }
         {delay.delayMsg === undefined &&
