@@ -7,15 +7,17 @@ html(lang='en' charset='utf-8')
     link(rel="stylesheet" href="css/main.css")
 
   body
+    a.accessible(href='#train-info') Skip to Main Content
     .wrapper
       header(aria-label="App title")
         div(role="banner")
-          h1.banner__title Is My &#x1F684 Delayed?
+          h1.banner__title Is My #[span(aria-hidden='true') &#x1F684]#[span.accessible Train] Delayed?
 
-      main#train-info
-        section.train-info(aria-label='Train information')
+      main#train-info(aria-label='Train information')
+        .train-info
           if trains.length
           table
+            caption.accessible Train status information
             thead
               tr
                 td(colspan='2') Train Line
@@ -28,7 +30,7 @@ html(lang='en' charset='utf-8')
                     td= train.name
                     if train.status === "Delayed"
                       td.
-                        #[a.delay-info-expand(href='') #{train.status}]
+                        #[button.delay-info-expand(aria-expanded='false' type='button' title='Click to expand and get more information about this delay') #{train.status} #[span.accessible - #{train.name}]]
                         #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined)]
                     else
                       td #{train.status} #[span.delayed-msg(class= train.status === "On time" ? "delayed-msg--hidden" : undefined)]
@@ -40,7 +42,7 @@ html(lang='en' charset='utf-8')
                           each delay in train.details
                             .delay
                               if delay.delayMsg
-                                span.delayinfo__msg #[a(href=delay.delayMsg) More information]
+                                span.delayinfo__msg #[a(href=delay.delayMsg title='Opens the GO Transit website to get more information about this delay') More information]
                               else
                                 span.delay-info__direction !{delay.delayDirection}
                                 span.delay-info__train !{delay.delayedTrain}
