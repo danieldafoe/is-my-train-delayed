@@ -1,11 +1,11 @@
 # Is My Train Delayed?
-A small web app built on Heroku with Node, Pug, Sass, and React that scans the GO Transit website to get information about delayed trains, and displays that succinctly.
+A small web app built on Heroku with Node, Express, Pug, Sass, and React that scans the GO Transit website to get information about delayed trains.
 
 [![David-DM dependency checker image](https://david-dm.org/danieldafoe/is-my-train-delayed.svg)](https://david-dm.org/danieldafoe/is-my-train-delayed.svg)
 
 ## Tech Stack
 #### Backend
-- Node.js
+- Node (ExpressJS)
 
 #### Front-End
 - Pug (HTML)
