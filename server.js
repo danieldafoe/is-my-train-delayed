@@ -11,12 +11,16 @@ app.set('views', './views')
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, '/')));
 
-//
-// API: /
-// --------------------------------------------------------------------------
-app.get('/', function(req, res) {
+// Allow requests from any domain - to solve a CORS bug.
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
-	// Scrape GO Transit main page
+// Retrieve and return GO train data.
+function getTrainData (callback) {
+  // Scrape GO Transit main page
   const url = 'http://www.gotransit.com/publicroot/en/default.aspx';
   var timestamp;
   var trainsArr = [];
@@ -35,7 +39,7 @@ app.get('/', function(req, res) {
 
 			for (var i = 0; i < trains.length; i++) {
 				name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
-				
+
 				// Set default status to On time
 				status = "On time";
 				// Check if <tr> contains info within one of its children
@@ -131,7 +135,17 @@ app.get('/', function(req, res) {
 				});
 			}
 		}
-		res.render('index', { "retrieveTime": timestamp, "trains": trainsArr });
+    callback({ timestamp: timestamp, trains: trainsArr });
+  });
+}
+
+//
+// API: /
+// --------------------------------------------------------------------------
+app.get('/', function(req, res) {
+
+  getTrainData(function (data) {
+		res.render('index', { "retrieveTime": data.timestamp, "trains": data.trains });
 	});
 });
 
@@ -139,90 +153,8 @@ app.get('/', function(req, res) {
 // API: /fetch
 // --------------------------------------------------------------------------
 app.get('/fetch', (req, res) => {
-	// Scrape GO Transit main page
-  const url = 'http://www.gotransit.com/publicroot/en/default.aspx';
-  var timestamp;
-  var trainsArr = [];
-
-	// Supply formatted, scraped data to render of pug
-	request(url, function(error, response, html) {
-		if (!error) {
-			var name, status, smallDelay, bigDelay;
-			var names = [];
-			var $ = cheerio.load(html);
-			timestamp = $('.timestamp div span').html();
-			// Returns all train lines
-			var trains = $('#rtab1 .gridStatusTrain tbody tr');
-			// If empty, no trains are delayed
-			var trainsDelayed = trains.has('.delayLink');
-
-			for (var i = 0; i < trains.length; i++) {
-				name = $(trains[i.toString()]).find('.gridStatusWidthOne').text();
-				
-				// Set default status to On time
-				status = "On time";
-				// Check if <tr> contains info within one of its children
-				smallDelay = $(trains[i.toString()]).has('.delayLink');
-				// Check if <tr> has link to URL with additional info
-				bigDelay = $(trains[i.toString()]).has('.moreInfoLink');
-
-				// If <tr> contains an element
-				// with either .delayLink or
-				// .moreInfoLink, it's delayed
-				if (smallDelay.length > 0) {
-					status = "Delayed";
-
-					// If the current retrieved train line is delayed,
-					// find info about it
-					var statusText, direction, details;
-					var statusArr = [];
-					// Find all directions there are delays for
-					var delayDirections = $(trains[i.toString()]).find('.messageDisrp .subtitle');
-
-					for (var j = 0; j < delayDirections.length; j++) {
-						direction = $(delayDirections[j.toString()]).find('h4').text();
-						// Get all next sibling <li> elements that are not
-						// another node with a directional title
-						delay = $(delayDirections[j.toString()]).nextUntil('.subtitle');
-
-						// Iterate through <span> within each delay
-						// and get delay information
-						$(delay).find('span').each(function(i, el) {
-							statusArr.push({
-								"delayDirection": direction,
-								"delayedTrain": el.children[0].data,
-								"delayLength": el.children[2].data,
-								"delayStatus": el.children[4].data
-							});
-						});
-					}
-				}
-				else if (bigDelay.length > 0) {
-					names.push(name);
-					status = "Delayed";
-
-					// If the current retrieved train line is delayed,
-					// find info about it
-					var statusText, details;
-					var statusArr = [];
-					var moreInfoURL = $(trains[i.toString()]).find('.moreInfoLink').attr('href');
-
-					// If there's more information, display the link to find it
-					statusArr.push({
-						"delayMsg": moreInfoURL
-					});
-				}
-
-				// Push retrieved train line info
-				// to trains array
-				trainsArr.push({
-					"name": name,
-					"status": status,
-					"details": statusArr
-				});
-			}
-		}
-		res.send({ "retrieveTime": timestamp, "trains": trainsArr });
+	getTrainData(function (data) {
+		res.send({ "retrieveTime": data.timestamp, "trains": data.trains });
 	});
 });
 
