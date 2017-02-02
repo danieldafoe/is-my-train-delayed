@@ -1,0 +1,115 @@
+# Sass-lint
+#
+# Configuration
+options:
+  # Don't merge default rules
+  merge-default-rules: false
+  # Set the formatter to 'html'
+  formatter: stylish
+  # Raise an error if more than 50 warnings are generated
+  max-warnings: 50
+
+# Rules
+rules:
+  attribute-quotes: true
+  bem-depth: 2
+  border-zero:
+    convention: '0'
+  brace-style:
+    style: '1tbs'
+    allow-single-line: false
+  class-name-format:
+    allow-leading-underscore: false
+    convention: 'hyphenatedbem'
+  clean-import-paths:
+    leading-underscore: true
+    filename-extension: true
+  declarations-before-nesting: true
+  empty-args:
+    include: false
+  empty-line-between-blocks:
+    include: true
+    allow-single-line-rulesets: false
+  extends-before-declarations: true
+  extends-before-mixins: true
+  final-newline: true
+  force-attribute-nesting: false
+  force-element-nesting: true
+  force-pseudo-nesting: true
+  function-name-format:
+    allow-leading-underscore: true
+    convention: 'hypenatedlowercase'
+  hex-length: long
+  hex-notation: 'lowercase'
+  id-name-format:
+    allow-leading-underscore: false
+    convention: 'hyphenatedlowercase'
+  indentation: 2
+  leading-zero:
+    include: false
+  mixin-name-format:
+    allow-leading-underscore: false
+    convention: 'hyphenatedlowercase'
+  mixins-before-declarations: true
+  nesting-depth: 3
+  no-attribute-selectors: false
+  no-color-hex: false
+  no-color-keywords: true
+  no-color-literals: true
+  no-combinators: false
+  no-css-comments: true
+  no-debug: true
+  no-disallowed-properties: false
+  no-duplicate-properties: false
+  no-empty-rulesets: true
+  no-extends: true
+  no-ids: false
+  no-important: true
+  no-invalid-hex: true
+  no-mergeable-selectors: false
+  no-misspelled-properties: true
+  # Using BEM, this really shouldn't happen
+  no-qualifying-elements: true
+  #
+  no-trailing-whitespace: true
+  no-trailing-zero: true
+  no-transition-all: true
+  no-universal-selectors: false
+  no-url-domains: true
+  no-url-protocols: true
+  no-vendor-prefixes: false
+  no-warn: false
+  one-declaration-per-line: true
+  placeholder-in-extend: false
+  placeholder-name-format:
+    allow-leading-underscore: false
+    convention: 'hyphenatedlowercase'
+  quotes:
+    style: 'single'
+  shorthand-values: 1
+  single-line-per-selector: true
+  space-after-bang:
+    include: false
+  space-after-colon:
+    include: true
+  space-after-comma:
+    include: true
+  space-around-operator:
+    include: true
+  space-before-bang:
+    include: true
+  space-before-brace:
+    include: true
+  space-before-colon:
+    include: false
+  space-between-parens:
+    include: false
+  trailing-semicolon:
+    include: true
+  url-quotes: true
+  variable-for-property: true
+  variable-name-format:
+    allow-leading-underscore: true
+    convention: 'hyphenatedlowercase'
+  zero-unit:
+    include: false
