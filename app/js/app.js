@@ -15,9 +15,6 @@ class TrainInfo extends React.Component {
   constructor(props) {
     super(props);
     this.loading = false;
-    this.handleRefresh = this.handleRefresh.bind(this);
-    this.handleResponse = this.handleResponse.bind(this);
-    this.toggleDelayInfo = this.toggleDelayInfo.bind(this);
     this.formatDate = this.formatDate.bind(this);
   }
   componentWillMount() {
@@ -55,42 +52,6 @@ class TrainInfo extends React.Component {
     d += (date.getHours() > 12 ? ' PM' : ' AM');
 
     return d;
-  }
-
-  toggleDelayInfo(event) {
-    event.preventDefault();
-
-    if (event.target.parentElement.parentElement.nextSibling.classList.contains('delay-info--show')) {
-      event.target.parentElement.parentElement.nextSibling.classList.remove('delay-info--show')
-    }
-    else {
-      event.target.parentElement.parentElement.nextSibling.classList.add('delay-info--show');
-    }
-  }
-
-  handleRefresh() {
-    // Spin the loader
-    // document.querySelector('.train-info__actions button svg').classList.add('spin');
-
-    var oReq = new XMLHttpRequest();
-
-    oReq.addEventListener("load", this.handleResponse);
-    oReq.addEventListener("error", this.handleResponse);
-    oReq.addEventListener("timeout", this.handleResponse);
-
-    oReq.open("GET", "/fetch");
-    oReq.send();
-  }
-
-  handleResponse(res) {
-    var data = JSON.parse(res.target.response);
-    if (res.target.status === 200) {
-      this.renderData(data);
-    }
-  }
-
-  renderData(data) {
-    ReactDOM.render(<TrainInfo data={data} />, document.getElementById('train-info'));
   }
 
   render() {
