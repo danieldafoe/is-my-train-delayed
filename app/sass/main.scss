@@ -268,6 +268,25 @@ svg {
     font-size: 1.4rem;
     font-style: italic;
   }
+  &__actions {
+    button {
+      @include transition();
+      width: 100%;
+      padding: 1.25rem 0;
+      font-size: 2rem;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      background-color: $clr-btn-primary;
+
+      &:active,
+      &:focus,
+      &:hover {
+        cursor: pointer;
+        background-color: darken($clr-btn-primary, 10%);
+      }
+    }
+  }
 }
 
 //
