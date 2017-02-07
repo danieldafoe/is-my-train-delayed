@@ -54,7 +54,7 @@ body {
   line-height: 1.47;
   font-size: 1.4rem;
   font-family: $ff-sans;
-  color: #333;
+  color: $clr-body-text;
   background-color: $clr-body-bg;
 }
 header {
@@ -119,6 +119,7 @@ h1 {
   margin-bottom: 0;
   letter-spacing: -1px;
   font-size: 500%;
+  font-family: $ff-title;
   color: $clr-title;
 
   @media (max-width: 805px) {
