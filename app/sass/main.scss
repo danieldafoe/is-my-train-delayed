@@ -14,12 +14,14 @@ $clr-error: #fa0001;
 $clr-on-time: #29f442;
 $clr-delayed: #fa0001;
 $clr-body-bg: #fff;
+$clr-body-text: #444;
 $clr-btn-primary: #7791C1;
 $clr-link: #7791C1;
 $clr-title: #7791C1;
 $clr-footer-bg: #7791C1;
 
-$ff-sans: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
+$ff-title: 'Lato', system, sans-serif;
+$ff-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Ubuntu', 'Fira Sans', 'Helvetica Neue', sans-serif;
 
 //
 // Globals
