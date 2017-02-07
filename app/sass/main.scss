@@ -336,12 +336,14 @@ svg {
     border-radius: 0;
     box-shadow: none;
     text-decoration: underline;
+    font-size: 1.8rem;
     color: $clr-link;
     background-color: transparent;
 
     &:hover,
     &:active,
     &:focus {
+      cursor: pointer;
       border: 0;
       border-radius: 0;
       box-shadow: none;
