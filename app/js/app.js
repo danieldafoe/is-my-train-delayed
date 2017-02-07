@@ -260,7 +260,7 @@ class Button extends React.Component {
             <polygon display="inline" points="32.01,14.02 67.99,50.002 32.01,85.98"/>
           </g>
         </svg>
-        Refresh
+        {this.state.loading === true ? '' : 'Refresh'}
       </button>
     )
   }
