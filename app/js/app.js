@@ -78,13 +78,13 @@ class TrainInfo extends React.Component {
           {train.status === "Delayed" &&
             <td>
               <button type='button' className='delay-info-expand' title='Click to expand and get more information about this delay' onClick={this.toggleDelayInfo}>{train.status} <span className='accessible'>- {train.name}</span></button>
-              <span className={"delayed-msg " + (train.status === "On time" ? "delayed-msg--hidden" : undefined)}></span>
+              <span className={"delayed-msg " + (train.status === "On time" ? "delayed-msg--hidden" : '')}></span>
             </td>
           }
           {train.status !== "Delayed" &&
               <td>
                 {train.status}
-                <span className={"delayed-msg " + (train.status === "On time" ? "delayed-msg--hidden" : undefined)}></span>
+                <span className={"delayed-msg " + (train.status === "On time" ? "delayed-msg--hidden" : '')}></span>
               </td>
           }
         </tr>
