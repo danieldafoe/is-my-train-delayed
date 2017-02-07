@@ -16,6 +16,7 @@ class TrainInfo extends React.Component {
     super(props);
     this.loading = false;
     this.formatDate = this.formatDate.bind(this);
+    this.toggleDelayInfo = this.toggleDelayInfo.bind(this);
   }
   componentWillMount() {
 
@@ -23,6 +24,17 @@ class TrainInfo extends React.Component {
 
   componentDidMount() {
 
+  }
+
+  toggleDelayInfo(event) {
+    event.preventDefault();
+
+    if (event.target.parentElement.parentElement.nextSibling.classList.contains('delay-info--show')) {
+      event.target.parentElement.parentElement.nextSibling.classList.remove('delay-info--show')
+    }
+    else {
+      event.target.parentElement.parentElement.nextSibling.classList.add('delay-info--show');
+    }
   }
 
   formatDate(date) {
