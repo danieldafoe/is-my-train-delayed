@@ -14,12 +14,14 @@ $clr-error: #fa0001;
 $clr-on-time: #29f442;
 $clr-delayed: #fa0001;
 $clr-body-bg: #fff;
+$clr-body-text: #444;
 $clr-btn-primary: #7791C1;
 $clr-link: #7791C1;
 $clr-title: #7791C1;
 $clr-footer-bg: #7791C1;
 
-$ff-sans: "Fira Sans", Roboto, "San Francisco", "Helvetica Neue", "Myrid Pro", Arial, sans-serif;
+$ff-title: 'Lato', system, sans-serif;
+$ff-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Ubuntu', 'Fira Sans', 'Helvetica Neue', sans-serif;
 
 //
 // Globals
@@ -52,7 +54,7 @@ body {
   line-height: 1.47;
   font-size: 1.4rem;
   font-family: $ff-sans;
-  color: #333;
+  color: $clr-body-text;
   background-color: $clr-body-bg;
 }
 header {
@@ -113,26 +115,11 @@ tbody {
     }
   }
 }
-button {
-  @include transition();
-  @include shadow(200);
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.8rem;
-  border: 0;
-  border-radius: 3px;
-  color: #fff;
-  background-color: $clr-btn-primary;
-
-  &:hover {
-    @include shadow(300);
-    cursor: pointer;
-  }
-}
 h1 {
   margin-bottom: 0;
   letter-spacing: -1px;
   font-size: 500%;
+  font-family: $ff-title;
   color: $clr-title;
 
   @media (max-width: 805px) {
@@ -162,18 +149,22 @@ svg {
   width: 2rem;
   height: 2rem;
   vertical-align: bottom;
-}
-.icon--refresh {
-  fill: #fff;
-  margin-right: .5rem;
+
+  &--hidden {
+    display: none;
+  }
+  &--refresh {
+    fill: #fff;
+    margin-right: .5rem;
+  }
 }
 
 //
 // Animations
 // --------------------------------------------------------------------------
 .spin {
-  -webkit-animation: spin 2s infinite linear;
-  animation: spin 2s infinite linear;
+  -webkit-animation: spin 1.25s infinite linear;
+  animation: spin 1.25s infinite linear;
 }
 @-webkit-keyframes spin {
   0% {
@@ -282,6 +273,25 @@ svg {
     font-size: 1.4rem;
     font-style: italic;
   }
+  &__actions {
+    button {
+      @include transition();
+      width: 100%;
+      padding: 1.25rem 0;
+      font-size: 2rem;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      background-color: $clr-btn-primary;
+
+      &:active,
+      &:focus,
+      &:hover {
+        cursor: pointer;
+        background-color: darken($clr-btn-primary, 10%);
+      }
+    }
+  }
 }
 
 //
@@ -330,12 +340,14 @@ svg {
     border-radius: 0;
     box-shadow: none;
     text-decoration: underline;
+    font-size: 1.8rem;
     color: $clr-link;
     background-color: transparent;
 
     &:hover,
     &:active,
     &:focus {
+      cursor: pointer;
       border: 0;
       border-radius: 0;
       box-shadow: none;
