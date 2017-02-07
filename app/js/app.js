@@ -245,7 +245,7 @@ class Button extends React.Component {
   render() {
     return (
       <button type='button' onClick={this.handleRefresh}>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve" className="icon icon--refresh">
+        <svg className={"icon icon--refresh " + (this.state.loading === true ? "spin" : "icon--hidden")} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enableBackground="new 0 0 100 100" xmlSpace="preserve">
           <g display="none">
             <polygon display="inline" points="85.982,15.043 14.018,15.043 41.006,42.031 41.006,84.957 58.996,72.963 58.996,42.031"/>
           </g>
