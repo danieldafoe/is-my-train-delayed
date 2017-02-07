@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const pump = require('pump');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
+const sassLint = require('gulp-sass-lint');
 const wp = require('webpack');
 const webpack = require('webpack-stream');
 const uglify = require('gulp-uglify');
@@ -29,11 +30,14 @@ gulp.task('pug', () => {
 
 gulp.task('sass', () => {
   return gulp.src(config.sass.src)
+  .pipe(sassLint())
+  .pipe(sassLint.format())
+  .pipe(sassLint.failOnError())
   .pipe(sass())
   .pipe(gulp.dest(config.sass.dest))
 });
 
-gulp.task('js', function() {
+gulp.task('js', () => {
   return gulp.src(config.js.src)
   .pipe(webpack({
     devtool: 'cheap-module-source-map',
@@ -51,7 +55,7 @@ gulp.task('js', function() {
       })
     ],
   }))
-  .pipe(rename(function(path) {
+  .pipe(rename((path) => {
     path.basename = 'app'
   }))
   .pipe(gulp.dest('./js/'));
