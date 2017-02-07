@@ -286,6 +286,7 @@ function init() {
     }
   });
   refreshBtn.addEventListener('click', function(e) {
+    toggleRefreshState.call(this);
     handleDataFetch(e);
   });
 
@@ -328,6 +329,13 @@ function init() {
       renderData(data);
     }
   };
+
+  function toggleRefreshState() {
+    var svg = REFRESH;
+    // Called with .call(), so `this` is available
+    // as the calling <button>
+    this.innerHTML = svg;
+  }
 
   function renderData(data) {
     ReactDOM.render(<TrainInfo data={data} />, document.getElementById('train-info'));
