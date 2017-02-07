@@ -211,18 +211,6 @@ class Button extends React.Component {
     }
     this.handleRefresh = this.handleRefresh.bind(this);
     this.handleResponse = this.handleResponse.bind(this);
-    this.toggleDelayInfo = this.toggleDelayInfo.bind(this);
-  }
-
-  toggleDelayInfo(event) {
-    event.preventDefault();
-
-    if (event.target.parentElement.parentElement.nextSibling.classList.contains('delay-info--show')) {
-      event.target.parentElement.parentElement.nextSibling.classList.remove('delay-info--show')
-    }
-    else {
-      event.target.parentElement.parentElement.nextSibling.classList.add('delay-info--show');
-    }
   }
 
   handleRefresh() {
