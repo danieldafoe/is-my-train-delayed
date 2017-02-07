@@ -214,7 +214,9 @@ class Button extends React.Component {
   }
 
   handleRefresh() {
-    // Spin the loader
+    this.setState({
+      loading: true
+    });
 
     var oReq = new XMLHttpRequest();
 
@@ -235,6 +237,9 @@ class Button extends React.Component {
 
   renderData(data) {
     ReactDOM.render(<TrainInfo data={data} />, document.getElementById('train-info'));
+    this.setState({
+      loading: false
+    });
   }
 
   render() {
