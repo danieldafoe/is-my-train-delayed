@@ -115,22 +115,6 @@ tbody {
     }
   }
 }
-button {
-  @include transition();
-  @include shadow(200);
-  width: 100%;
-  padding: 1rem;
-  font-size: 1.8rem;
-  border: 0;
-  border-radius: 3px;
-  color: #fff;
-  background-color: $clr-btn-primary;
-
-  &:hover {
-    @include shadow(300);
-    cursor: pointer;
-  }
-}
 h1 {
   margin-bottom: 0;
   letter-spacing: -1px;
