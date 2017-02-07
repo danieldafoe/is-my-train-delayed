@@ -149,10 +149,14 @@ svg {
   width: 2rem;
   height: 2rem;
   vertical-align: bottom;
-}
-.icon--refresh {
-  fill: #fff;
-  margin-right: .5rem;
+
+  &--hidden {
+    display: none;
+  }
+  &--refresh {
+    fill: #fff;
+    margin-right: .5rem;
+  }
 }
 
 //
