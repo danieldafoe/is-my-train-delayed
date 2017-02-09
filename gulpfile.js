@@ -7,18 +7,18 @@ const wp = require('webpack');
 const webpack = require('webpack-stream');
 const uglify = require('gulp-uglify');
 
-var config = {
-  "pug": {
-    "src": "./app/pug/*.pug",
-    "dest": "./"
+const config = {
+  'pug': {
+    'src': './app/pug/*.pug',
+    'dest': './'
   },
-  "sass": {
-    "src": "./app/sass/*.scss",
-    "dest": "./css/"
+  'sass': {
+    'src': './app/sass/*.scss',
+    'dest': './css/'
   },
-  "js": {
-    "src": "./app/js/*.js",
-    "dest": "./js/"
+  'js': {
+    'src': './app/js/*.js',
+    'dest': './js/'
   }
 };
 
