@@ -4,32 +4,45 @@
 options:
   # Don't merge default rules
   merge-default-rules: false
-  # Set the formatter to 'html'
   formatter: stylish
-  # Raise an error if more than 50 warnings are generated
-  max-warnings: 50
+  # Raise an error if more than 10 warnings are generated
+  max-warnings: 10
 
 # Rules
 rules:
   attribute-quotes: true
-  bem-depth: 2
+  bem-depth:
+    - 1
+    -
+      max-depth: 2
   border-zero:
-    convention: '0'
+    - 1
+    -
+      convention: '0'
   brace-style:
-    style: '1tbs'
-    allow-single-line: false
+    - 1
+    -
+      style: '1tbs'
+      allow-single-line: false
   class-name-format:
-    allow-leading-underscore: false
-    convention: 'hyphenatedbem'
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: 'hyphenatedbem'
   clean-import-paths:
-    leading-underscore: true
-    filename-extension: true
+    - 1
+    -
+      leading-underscore: true
+      filename-extension: true
   declarations-before-nesting: true
   empty-args:
-    include: false
+    - 1
+    -
+      include: false
   empty-line-between-blocks:
-    include: true
-    allow-single-line-rulesets: false
+    - 0
+    -
+      allow-single-line-rulesets: false
   extends-before-declarations: true
   extends-before-mixins: true
   final-newline: true
@@ -37,26 +50,37 @@ rules:
   force-element-nesting: true
   force-pseudo-nesting: true
   function-name-format:
-    allow-leading-underscore: true
-    convention: 'hypenatedlowercase'
+    - 1
+    -
+      allow-leading-underscore: true
+      convention: 'hypenatedlowercase'
   hex-length: long
   hex-notation: 'lowercase'
   id-name-format:
-    allow-leading-underscore: false
-    convention: 'hyphenatedlowercase'
-  indentation: 2
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: 'hyphenatedlowercase'
+  indentation:
+    - 2
+    -
+      size: 2
   leading-zero:
-    include: false
+    - 1
+    -
+      include: false
   mixin-name-format:
-    allow-leading-underscore: false
-    convention: 'hyphenatedlowercase'
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: 'hyphenatedlowercase'
   mixins-before-declarations: true
   nesting-depth: 3
   no-attribute-selectors: false
   no-color-hex: false
   no-color-keywords: true
   no-color-literals: true
-  no-combinators: false
+  no-combinators: 0
   no-css-comments: true
   no-debug: true
   no-disallowed-properties: false
@@ -74,42 +98,68 @@ rules:
   no-trailing-whitespace: true
   no-trailing-zero: true
   no-transition-all: true
-  no-universal-selectors: false
+  no-universal-selectors: 0
   no-url-domains: true
   no-url-protocols: true
-  no-vendor-prefixes: false
+  no-vendor-prefixes: 0
   no-warn: false
   one-declaration-per-line: true
   placeholder-in-extend: false
   placeholder-name-format:
-    allow-leading-underscore: false
-    convention: 'hyphenatedlowercase'
+    - 1
+    -
+      allow-leading-underscore: false
+      convention: 'hyphenatedlowercase'
   quotes:
-    style: 'single'
+    - 1
+    -
+      style: 'single'
   shorthand-values: 1
   single-line-per-selector: true
   space-after-bang:
-    include: false
+    - 1
+    -
+      include: false
   space-after-colon:
-    include: true
+    - 1
+    -
+      include: true
   space-after-comma:
-    include: true
+    - 1
+    -
+      include: true
   space-around-operator:
-    include: true
+    - 1
+    -
+      include: true
   space-before-bang:
-    include: true
+    - 1
+    -
+      include: true
   space-before-brace:
-    include: true
+    - 1
+    -
+      include: true
   space-before-colon:
-    include: false
+    - 1
+    -
+      include: false
   space-between-parens:
-    include: false
+    - 1
+    -
+      include: false
   trailing-semicolon:
-    include: true
+    - 1
+    -
+      include: true
   url-quotes: true
   variable-for-property: true
   variable-name-format:
-    allow-leading-underscore: true
-    convention: 'hyphenatedlowercase'
+    - 1
+    -
+      allow-leading-underscore: true
+      convention: 'hyphenatedlowercase'
   zero-unit:
-    include: false
+    - 1
+    -
+      include: false

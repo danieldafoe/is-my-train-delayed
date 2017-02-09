@@ -15,6 +15,7 @@ $clr-on-time: #29f442;
 $clr-delayed: #fa0001;
 $clr-body-bg: #fff;
 $clr-body-text: #444;
+
 $clr-btn-primary: #7791C1;
 $clr-link: #7791C1;
 $clr-title: #7791C1;
@@ -58,11 +59,11 @@ body {
   background-color: $clr-body-bg;
 }
 header {
-  @include flexbox();
+  @include flexbox;
   justify-content: center;
 }
 main {
-  @include flexbox();
+  @include flexbox;
   flex-direction: column;
   align-items: center;
   font-size: 1.8rem;
@@ -72,7 +73,7 @@ main {
   }
 }
 footer {
-  @include flexbox();
+  @include flexbox;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -275,7 +276,7 @@ svg {
   }
   &__actions {
     button {
-      @include transition();
+      @include transition;
       width: 100%;
       padding: 1.25rem 0;
       font-size: 2rem;
@@ -303,7 +304,7 @@ svg {
   border-bottom: 1px solid #ddd;
 
   &:first-child {
-    margin: 1rem 0 1rem;
+    margin: 1rem 0;
   }
   &:last-child {
     margin: 1rem 0 0;
