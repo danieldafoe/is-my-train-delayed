@@ -30,7 +30,11 @@ gulp.task('pug', () => {
 
 gulp.task('sass', () => {
   return gulp.src(config.sass.src)
-  .pipe(sassLint())
+  .pipe(sassLint({
+    options: {
+      configFile: '.sass-lint.yml'
+    }
+  }))
   .pipe(sassLint.format())
   .pipe(sassLint.failOnError())
   .pipe(sass())
