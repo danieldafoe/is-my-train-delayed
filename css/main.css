@@ -221,7 +221,7 @@ svg:not(:root) {
   padding: 0 0 1rem 2rem;
   border-bottom: 1px solid #ddd; }
   .delay:first-child {
-    margin: 1rem 0 1rem; }
+    margin: 1rem 0; }
   .delay:last-child {
     margin: 1rem 0 0;
     border-bottom: 0; }
