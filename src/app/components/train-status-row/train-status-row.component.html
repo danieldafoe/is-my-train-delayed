@@ -1,0 +1,10 @@
+<tr>
+  <td>
+    <span class="status-circle" 
+          [ngClass]='train?.Status === "On-Time" ? "on-time" : "delayed"'>
+    </span>
+  </td>
+  <td>
+    {{ train?.CorridorName }}
+  </td>
+</tr>

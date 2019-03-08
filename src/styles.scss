@@ -1,0 +1,440 @@
+// ==========================================================================
+// Styles for: Is My Train Delayed?
+// ==========================================================================
+
+//
+// Imports
+// --------------------------------------------------------------------------
+@import 'sass/mixins';
+
+//
+// Variables
+// --------------------------------------------------------------------------
+$clr-error: #fa0001;
+$clr-on-time: #29f442;
+$clr-delayed: #fa0001;
+$clr-body-bg: #fff;
+$clr-body-text: #444;
+
+$clr-btn-primary: #7791C1;
+$clr-link: #7791C1;
+$clr-title: #7791C1;
+$clr-footer-bg: #7791C1;
+
+$ff-title: 'Lato', system, sans-serif;
+$ff-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Ubuntu', 'Fira Sans', 'Helvetica Neue', sans-serif;
+
+//
+// Globals
+// --------------------------------------------------------------------------
+.accessible {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -1000px;
+  width: 1px;
+}
+
+.attribution {
+  font-size: 80%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  margin: 0;
+  width: 100%;
+}
+
+body {
+  background-color: $clr-body-bg;
+  color: $clr-body-text;
+  font-family: $ff-sans;
+  font-size: 1.4rem;
+  line-height: 1.47;
+  margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+header {
+  @include flexbox;
+  justify-content: center;
+}
+
+main {
+  @include flexbox;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.8rem;
+
+  > * {
+    margin-bottom: 1rem;
+  }
+}
+
+footer {
+  @include flexbox;
+  align-items: center;
+  background-color: lighten($clr-footer-bg, 25%);
+  flex-direction: column;
+  font-size: 1.8rem;
+  justify-content: center;
+  margin: 2rem 0 0;
+  padding: 1.5rem 1rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+table {
+  border-collapse: collapse;
+}
+
+thead {
+  td {
+    border-bottom: 6px solid #ddd;
+  }
+}
+
+td {
+  padding: 1rem 2rem;
+}
+
+tbody {
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+
+  td {
+    &:first-of-type {
+      @media (max-width: 480px) {
+        padding: 1rem 1.5rem;
+      }
+    }
+
+    &:nth-child(2) {
+      font-weight: 600;
+      padding: 1rem 3rem 1rem 1rem;
+    }
+
+    &:last-child {
+      text-align: center;
+    }
+  }
+}
+
+h1 {
+  color: $clr-title;
+  font-family: $ff-title;
+  font-size: 500%;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+
+  @media (max-width: 805px) {
+    font-size: 300%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 280%;
+  }
+}
+
+h2 {
+  font-size: 115%;
+  margin: 2rem 0 0;
+}
+
+a {
+  color: $clr-link;
+}
+
+svg {
+  &:not(:root) {
+    overflow: hidden;
+  }
+}
+
+//
+// Icons
+// --------------------------------------------------------------------------
+.icon {
+  height: 2rem;
+  vertical-align: bottom;
+  width: 2rem;
+
+  &--hidden {
+    display: none;
+  }
+
+  &--refresh {
+    fill: #fff;
+    margin-right: .5rem;
+  }
+}
+
+//
+// Animations
+// --------------------------------------------------------------------------
+.spin {
+  animation: spin 1.25s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+//
+// Styles
+// --------------------------------------------------------------------------
+.wrapper {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 70%;
+  // min-height: 100vh;
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &--error {
+    @media (max-width: 480px) {
+      max-width: 85%;
+      text-align: left;
+    }
+
+    .error-page-visual {
+      padding: 2rem 0;
+      position: relative;
+      z-index: 0;
+    }
+
+    h1 {
+      color: $clr-error;
+      font-size: 5vmax;
+      margin: 0;
+      padding-top: 2em;
+    }
+
+    p {
+      font-size: 110%;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.on-time {
+  background-color: $clr-on-time;
+}
+
+.delayed {
+  background-color: $clr-delayed;
+
+  &-msg {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    &--hidden {
+      display: none;
+    }
+  }
+}
+
+//
+// Site Information
+// --------------------------------------------------------------------------
+.site-info {
+  margin: 7rem 0 0;
+  padding: 0 15%;
+
+  @media (max-width: 992px) {
+    margin-top: 5rem;
+  }
+
+  @media (max-width: 480px) {
+    margin: 5rem auto 0;
+    max-width: 80%;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 1rem;
+  }
+}
+
+//
+// Train Info Table
+// --------------------------------------------------------------------------
+.train-info {
+  margin: 3rem auto 0;
+
+  &__last-retrieved {
+    font-size: 1.4rem;
+    font-style: italic;
+  }
+
+  &__actions {
+    button {
+      @include transition;
+      background-color: $clr-btn-primary;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 2rem;
+      padding: 1.25rem 0;
+      width: 100%;
+
+      &:active,
+      &:focus,
+      &:hover {
+        background-color: darken($clr-btn-primary, 10%);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+//
+// Delay Information - Tabular
+// --------------------------------------------------------------------------
+.delay {
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 1rem;
+  padding: 0 0 1rem 2rem;
+
+  &:first-child {
+    margin: 1rem 0;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    margin: 1rem 0 0;
+  }
+}
+
+.delay-info {
+  // Hidden until expanded
+  display: none;
+
+  &.delay-info--show {
+    display: table-row;
+  }
+
+  .delay-info__direction,
+  .delay-info__train,
+  .delay-info__length,
+  .delay-info__status {
+    text-align: left;
+  }
+
+  td {
+    &:last-child {
+      padding: 0;
+    }
+  }
+
+  span {
+    display: block;
+  }
+
+  &-expand {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: $clr-link;
+    font-size: 1.8rem;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+    width: auto;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      color: $clr-link;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &__direction,
+  &__train,
+  &__length,
+  &__status {
+    font-size: 75%;
+  }
+
+  &__train {
+    margin: 0 0 1rem;
+  }
+
+  &__length {
+    color: $clr-delayed;
+  }
+}
+
+//
+// Train Line Status Indicator
+// --------------------------------------------------------------------------
+.status-circle {
+  border-radius: 50%;
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+//
+// Errors
+// --------------------------------------------------------------------------
+.error-page {
+  &-safety {
+    margin: 4em 0 0;
+  }
+
+  &-train {
+    @include transform(rotateY(-180deg));
+    font-size: 7.5vmax;
+  }
+}
+
+.move-train {
+  animation: move-train 5s 0s linear infinite;
+  display: block;
+}
+
+
+@keyframes move-train {
+  0% {
+    @include transform(translateX(-150%) rotateY(180deg));
+  }
+
+  100% {
+    @include transform(translateX(100%) rotateY(180deg));
+  }
+}
