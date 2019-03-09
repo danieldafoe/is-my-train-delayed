@@ -1,0 +1,18 @@
+$loader-bg-clr: rgba(255, 255, 255, .9);
+$loader-text-clr: #333;
+
+.loader {
+  background-color: $loader-bg-clr;
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  p {
+    color: $loader-text-clr;
+    font-size: 4rem;
+    margin: auto;
+  }
+}

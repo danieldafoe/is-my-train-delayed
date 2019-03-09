@@ -1,0 +1,6 @@
+<div class='msg-banner' 
+     [ngClass]='{ "msg-banner--error": errorType == "HttpErrorResponse" }'>
+  <p class='msg-banner__text'>
+    {{ error.message }}
+  </p>
+</div>

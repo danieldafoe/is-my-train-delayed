@@ -1,0 +1,18 @@
+$msg-banner-error-bg-clr: #d11d1d;
+$msg-banner-error-text-clr: #fff;
+
+.msg-banner {
+  display: flex;
+  min-height: 60px;
+  padding: 2rem;
+  width: 100%;
+
+  &--error {
+    background-color: $msg-banner-error-bg-clr;
+    color: $msg-banner-error-text-clr;
+  }
+
+  p {
+    margin: auto;
+  }
+}

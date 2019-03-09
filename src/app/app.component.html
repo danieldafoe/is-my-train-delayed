@@ -1,0 +1,145 @@
+<a class="accessible" href="#train-info">Skip to Main Content</a>
+
+<ng-container *ngIf='serviceUpdate$ | async as state'>
+  <imtd-loader *ngIf='state.loading'></imtd-loader>
+</ng-container>
+
+<ng-container *ngIf='serviceUpdate$ | async as state'>
+  <imtd-message-banner *ngIf='state.error' [error]='state.error'>
+  </imtd-message-banner>
+</ng-container>
+
+<div class="wrapper">
+  <header aria-label="App title">
+    <h1 class="banner__title">
+      Is My Train Delayed?
+      <!-- foo -->
+    </h1>
+  </header>
+</div>
+
+<div class='main'>
+  <main class="train-info" id="train-info" aria-label="Train information">
+    {{ delays$ | async }}
+    <table>
+      <caption class="accessible">Train status information</caption>
+      <thead>
+        <tr>
+          <th scope='col' colspan="2">Train Line</th>
+          <th scope='col'>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngIf='serviceUpdate$ | async as state'>
+          <ng-container *ngFor='let train of state?.serviceUpdate?.Trains?.Train'>
+            <!-- <imtd-train-status-row [train]='train'></imtd-train-status-row> -->
+            <tr>
+              <td>
+                <span class="status-circle" [ngClass]='train?.Status === "On-Time" ? "on-time" : "delayed"'>
+                </span>
+              </td>
+              <td>
+                {{ train?.CorridorName }}
+              </td>
+              <td *ngIf='train?.Status === "On-Time"; else delayed'>
+                On-Time
+              </td>
+              <ng-template #delayed>
+                <td>
+                  <button type='button'
+                          aria-expanded='false'
+                          class='delay-info-expand'
+                          title='Click to expand and get more information about this delay'>
+                    {{ train.Status }}
+                    <span class='accessible'>for {{ train.CorridorName }}</span>
+                  </button>
+                </td>
+              </ng-template>
+            </tr>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf='serviceUpdate$ | async as state'>
+          <ng-container *ngIf='state?.error'>
+            <tr>
+              <td colspan="3">
+                Unable to retrieve train information.
+              </td>
+            </tr>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+
+    <div class="train-info__last-retrieved">
+      <p>
+        Last refreshed: 
+        <ng-container *ngIf='serviceUpdate$ | async as state'>
+          <span *ngIf='state?.serviceUpdate; else noUpdate'>
+            {{ state?.serviceUpdate?.LastUpdated | formatRefreshTime }}
+          </span>
+          <ng-template #noUpdate>
+            <span>
+              N/A
+            </span>
+          </ng-template>
+        </ng-container>
+      </p>
+    </div>
+    <div class="train-info__actions">
+      <button (click)='refresh()' type="button">Refresh</button>
+    </div>
+  </main>
+
+  <div class="site-info"
+       role="complementary"
+       aria-label="Information about Is My Train Delayed?">
+
+    <h2>How does this work?</h2>
+    <p>
+      This application uses the official GO Transit website to get its data. Whatever the GO Transit
+      website shows for train delays is what this site will show.
+    </p>
+
+    <h2>So why use this over GO Transit?</h2>
+    <p>
+      Fair question. The short answer is: impact to your data plan; the longer one is: after the
+      initial load of this page, it will cost your data plan ~1.3KB to refresh and get the most
+      up-to-date data. Even the first time you load this page costs less data than the GO Transit
+      website.
+    </p>
+
+    <h2>Coming Soon</h2>
+    <ul>
+      <li>
+        <strong>Improved Accessibility:</strong> Better code to support screen readers, as well as
+        interactions and design that better accommodate everyone who may use this application.
+      </li>
+      <li>
+        <strong>Metadata Tagging:</strong> Information that will show when searching for train
+        delays using Google. Similar to the visuals and info you see in Google search results without
+        clicking on a result.
+      </li>
+      <li class="goal-complete">
+        <strong>Manual Refresh:</strong> Click or touch the Refresh button to
+        get the latest train delays--no more page refreshing.
+      </li>
+    </ul>
+
+    <h2>Want to Help?</h2>
+    <p>
+      Please open an issue or pull request on the official 
+      <a href="https://github.com/danieldafoe/is-my-train-delayed">
+        GitHub repo
+      </a>
+      .
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>An experiment by <a href="https://danieldafoe.github.io">Daniel Dafoe</a>.</p>
+  <p class="attribution">Refresh icon artwork by <a
+       href="https://thenounproject.com/naomiatkinson">Naomi Atkinson</a>.</p>
+</footer>
+
+<router-outlet></router-outlet>
