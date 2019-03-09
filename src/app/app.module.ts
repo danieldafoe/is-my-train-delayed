@@ -6,21 +6,20 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { trainReducers } from './store/reducers/train.reducers';
-import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { TrainEffects } from './store/effects/train.effects';
 import { TrainService } from './services/train.service';
 import { MessageBannerComponent } from './components/message-banner/message-banner.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { TrainStatusRowComponent } from './components/train-status-row/train-status-row.component';
 import { FormatRefreshTimePipe } from './pipes/format-refresh-time.pipe';
+
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     MessageBannerComponent,
     LoaderComponent,
-    TrainStatusRowComponent,
     FormatRefreshTimePipe
   ],
   imports: [
