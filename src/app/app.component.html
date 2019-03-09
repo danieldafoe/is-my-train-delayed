@@ -18,15 +18,15 @@
   </header>
 </div>
 
-<main id="train-info" aria-label="Train information">
-  <div class="train-info">
+<div class='main'>
+  <main class="train-info" id="train-info" aria-label="Train information">
     {{ delays$ | async }}
     <table>
       <caption class="accessible">Train status information</caption>
       <thead>
         <tr>
-          <td scope='col' colspan="2">Train Line</td>
-          <td scope='col'>Status</td>
+          <th scope='col' colspan="2">Train Line</th>
+          <th scope='col'>Status</th>
         </tr>
       </thead>
       <tbody>
@@ -88,10 +88,10 @@
     <div class="train-info__actions">
       <button (click)='refresh()' type="button">Refresh</button>
     </div>
-  </div>
+  </main>
 
   <div class="site-info"
-       role="contentinfo"
+       role="complementary"
        aria-label="Information about Is My Train Delayed?">
 
     <h2>How does this work?</h2>
@@ -134,7 +134,7 @@
       .
     </p>
   </div>
-</main>
+</div>
 
 <footer>
   <p>An experiment by <a href="https://danieldafoe.github.io">Daniel Dafoe</a>.</p>

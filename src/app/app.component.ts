@@ -25,29 +25,30 @@ export class AppComponent implements OnInit {
     // so that I can grab just the serviceUpdate property of the AppState
     // instead of all of AppState
     this.serviceUpdate$ = this.store.select('serviceUpdate');
-    this.delays$ = this.serviceUpdate$.subscribe(serviceUpdate => {
-      // TODO: figure out why this returns the entire app state
-      // I think I know why, but how I can expect that it's going to be returned
-      // so that I can simply do `serviceUpdate.trains`
-      if (serviceUpdate.trains) {
-        for (let i = 0; i < serviceUpdate.trains.train.length; i++) {
-          const element: TrainNotificationStructure = (
-            serviceUpdate.trains.train[i].notifications);
 
-          for (let x = 0; x < serviceUpdate.trains.train[i].notifications.notification.length; x++) {
-            const notification: TrainNotification = (
-              serviceUpdate.trains.train[i].notifications[x]);
+    // this.delays$ = this.serviceUpdate$.subscribe(serviceUpdate => {
+    //   // TODO: figure out why this returns the entire app state
+    //   // I think I know why, but how I can expect that it's going to be returned
+    //   // so that I can simply do `serviceUpdate.trains`
+    //   if (serviceUpdate.trains) {
+    //     for (let i = 0; i < serviceUpdate.trains.train.length; i++) {
+    //       const element: TrainNotificationStructure = (
+    //         serviceUpdate.trains.train[i].notifications);
 
-            if (notification.TripNumbers) {
-              this.delays.push({
-                train: serviceUpdate.trains.train[i].corridorCode,
-                trips: notification.TripNumbers
-              });
-            }
-          }
-        }
-      }
-    });
+    //       for (let x = 0; x < serviceUpdate.trains.train[i].notifications.notification.length; x++) {
+    //         const notification: TrainNotification = (
+    //           serviceUpdate.trains.train[i].notifications[x]);
+
+    //         if (notification.TripNumbers) {
+    //           this.delays.push({
+    //             train: serviceUpdate.trains.train[i].corridorCode,
+    //             trips: notification.TripNumbers
+    //           });
+    //         }
+    //       }
+    //     }
+    //   }
+    // });
   }
 
   ngOnInit() {
