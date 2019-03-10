@@ -35,7 +35,7 @@
             <!-- <imtd-train-status-row [train]='train'></imtd-train-status-row> -->
             <tr>
               <td>
-                <span class="status-circle" [ngClass]='train?.saagNotifications ? "on-time" : "delayed"'>
+                <span class="status-circle" [ngClass]='!hasDelay(train) ? "on-time" : "delayed"'>
                 </span>
               </td>
               <td>
@@ -56,6 +56,15 @@
                 </td>
               </ng-template>
             </tr>
+            <ng-container *ngIf='hasDelay(train)'>
+              <tr>
+                <td colspan='3'>
+                  {{ train?.saagNotifications?.saagNotification?.headSign }}
+                  {{ train?.saagNotifications?.saagNotification?.delayDuration }}
+                  {{ train?.saagNotifications?.saagNotification?.status }}
+                </td>
+              </tr>
+            </ng-container>
           </ng-container>
         </ng-container>
         <ng-container *ngIf='serviceUpdate$ | async as state'>
