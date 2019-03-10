@@ -1,24 +1,18 @@
-# Is My Train Delayed?
-A small web app built on Heroku with Node, Express, Pug, Sass, and React that scans the GO Transit website to get information about delayed trains.
+# Is My Train Delayed
 
-[![David-DM dependency checker image](https://david-dm.org/danieldafoe/is-my-train-delayed.svg)](https://david-dm.org/danieldafoe/is-my-train-delayed.svg)
+This web application is project meant to provide an alternative display of the information you can find on the GO Transit website. This project was originally conceived _before_ GO Transit did an overhaul of their UI and information architecture design, so it really isn't as bad as it once was.
+
+Still, I think that what this application aims to do is provide a slice of the functionality from the GO Transit website in a simpler and more digestable way.
 
 ## Tech Stack
-#### Backend
-- Node (ExpressJS)
 
-#### Front-End
-- Pug (HTML)
-- Sass (CSS)
-- React (JS)
+In all honesty, this little application is completely over-engineered. I did this on purpose, however, to be able to explore different technologies and improve my own learning. The technology stack includes:
+- Heroku, for setting up a deployment pipeline and running the server
+- Node, for running the very minimal server on Heroku that serves the application
+- Angular, for managing the core of the application's interface, logic, navigation, etc
+- Ngrx, for managing the state of the application
+- Sass, for styling the application's interface 
 
-## How to Contribute
-First off, thank you for reading this. If you are, odds are likely that you want to help out.
+## Contributing
 
-If you'd like to help out by solving one of the issues for this project, please follow this process:
-
-1. Comment on the issue you're interested in fixing so that both myself and others know it's being worked on.
-2. Fork the repo to your own GitHub profile.
-3. Make your changes.
-4. Test your changes.
-5. Open a pull request back to this repo.
+After reading the [Contributing Guidelines](https://github.com/danieldafoe/is-my-train-delayed/blob/master/CONTRIBUTING.md), you are more than welcome to contribute any improvements from the [projects board](https://github.com/danieldafoe/is-my-train-delayed/projects) as pull requests on the`develop` branch.

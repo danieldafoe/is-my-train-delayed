@@ -2,28 +2,29 @@
 
 First off, thank you for contributing.
 
-Below you'll find sections with specific information about editing the different types of code contained within this project. Please follow the guidelines below or else it is unlikely your pull request will be accepted.
+Below you'll find sections with specific information about the overall architecture of the application and any processes that are set up to support its development.
 
-## HTML
 
-Markup is written in [Pug](http://pugjs.org) which is then rendered on the server into HTML and sent to the client.
+### Heroku
 
-If you need to edit the `index.pug` file, you will also need to find and edit the same markup within `app.js`. There are React components in there that (unfortunately) I coded in such a way that they reproduce the same HTML as the Pug and so changes need to be duplicated.
+This application has a pipeline that I've set up on Heroku:
+- Commits to `develop` will update https://is-my-train-delayed-beta.herokupapp.com for testing pre-release features
+- Commits to `master` will update https://is-my-train-delayed-rc.herokuapp.com, which is a staging environment to prepare for production release
+- Production releases must be manually triggered
 
-This will be refactored eventually.
 
-## CSS
+### Development server
 
-**Never** edit the CSS directly. If you're creating a component, please prefix the file name with an underscore and place it in a `components/` directory. (e.x., `_timer.scss`)
+Run `npm start` for a dev server. Your default browser should open a new tab with `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## JavaScript
 
-### Client
+### Code scaffolding
 
-If you end up touching `app.js` to complete some changes, you will need to run Webpack from the command line in order to build the project for production.
+Run `ng g component component-name` to generate a new Angular component. You can also use `ng g directive|pipe|service|class|guard|interface|enum|module`.
 
-To do this, you need only open terminal/command line and run `webpack --progress -p`. This will trigger Webpack's production configuration.
+Make sure generated files go in a logical place. If you're unsure, just [open an issue](https://github.com/danieldafoe/is-my-train-delayed/issues/new) and ask!
 
-### Server
 
-No extra compilation or bundling is needed for `server.js` at this time.
+### Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
