@@ -178,9 +178,9 @@ svg {
 // Icons
 // --------------------------------------------------------------------------
 .icon {
-  height: 2rem;
+  height: 2.25rem;
   vertical-align: bottom;
-  width: 2rem;
+  width: 2.25rem;
 
   &--hidden {
     display: none;
@@ -188,7 +188,6 @@ svg {
 
   &--refresh {
     fill: #fff;
-    margin-right: .5rem;
   }
 }
 

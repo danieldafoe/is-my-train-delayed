@@ -27,9 +27,25 @@ export interface BusStructure {
 }
 
 export interface Bus {
-  notifications;
+  notifications: BusNotificationStructure;
   status: string;
   totalUpdates: number;
+}
+
+export interface BusNotificationStructure {
+  notification: Array<BusNotification>;
+}
+
+export interface BusNotification {
+  code: string;
+  messageBody: string;
+  messageSubject: string;
+  name: string;
+  postedDateTime: string;
+  serviceMode: string;
+  status: string;
+  subCategory: string;
+  tripNumbers: Array<string>;
 }
 
 
@@ -57,7 +73,7 @@ export interface StationNotification {
   serviceMode: string;
   status: string;
   subCategory: string;
-  tripNumbers;
+  tripNumbers: Array<string>;
 }
 
 
@@ -72,9 +88,24 @@ export interface Train {
   corridorCode: string;
   corridorName: string;
   notifications: TrainNotificationStructure;
-  saagNotifications;
+  saagNotifications: SaagNotificationStructure;
   status: string;
   totalUpdates: number;
+}
+
+export interface SaagNotificationStructure {
+  saagNotification: Array<SaagNotification>;
+}
+
+export interface SaagNotification {
+  arrivalTimeDisplay: string;
+  delayDuration: string;
+  departureTimeDisplay: string;
+  direction: string;
+  headSign: string;
+  postedDateTime: string;
+  status: string;
+  tripNumbers: Array<string>;
 }
 
 export interface TrainNotificationStructure {
