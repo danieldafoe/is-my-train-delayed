@@ -1,0 +1,18 @@
+.delay-row {
+  &__sign {
+
+  }
+
+  &__duration {
+    color: #fa0001;
+    font-weight: 500;
+  }
+
+  &__status {
+    font-style: italic;
+  }
+
+  p {
+    margin: 0;
+  }
+}

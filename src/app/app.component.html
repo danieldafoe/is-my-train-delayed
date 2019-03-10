@@ -57,11 +57,20 @@
               </ng-template>
             </tr>
             <ng-container *ngIf='hasDelay(train)'>
-              <tr>
+              <tr *ngFor='let notification of train?.saagNotifications?.saagNotification'>
                 <td colspan='3'>
-                  {{ train?.saagNotifications?.saagNotification?.headSign }}
-                  {{ train?.saagNotifications?.saagNotification?.delayDuration }}
-                  {{ train?.saagNotifications?.saagNotification?.status }}
+                  <div class='delay-row'>
+                    <p class='delay-row__sign'>
+                      {{ notification?.headSign }}
+                    </p>
+                    <p class='delay-row__duration'>
+                      Delay: 
+                      {{ notification?.delayDuration }}
+                    </p>
+                    <p class='delay-row__status'>
+                      {{ notification?.status }}
+                    </p>
+                  </div>
                 </td>
               </tr>
             </ng-container>
