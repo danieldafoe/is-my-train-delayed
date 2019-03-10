@@ -1,0 +1,902 @@
+{
+    "LastUpdated": "2019-03-04T19:09:25.0410981-05:00",
+    "TotalUpdates": 50,
+    "Trains": {
+        "TotalUpdates": 29,
+        "Train": [
+            {
+                "CorridorName": "Lakeshore West",
+                "CorridorCode": "LW",
+                "Status": "11 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LW",
+                            "Name": "Lakeshore West",
+                            "MessageSubject": "Track Improvement – Possible Delays",
+                            "MessageBody": "Today and tomorrow, track work (welding) will be taking place on your line. The work is happening from 9:00 a.m. until 3:00 p.m. both days. Trains will need to operate slower through the work areas, and delays of up to 10 minutes are possible. This work includes rail welding and supports increased service levels along the Lakeshore West corridor.",
+                            "PostedDateTime": "03/03/2019 14:03:40",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                              "TripNumbers": null
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LW",
+                            "Name": "Lakeshore West",
+                            "MessageSubject": "Lakeshore West Delays",
+                            "MessageBody": "Due to two earlier fatalities, GO trips on your line are experiencing delays of up to 40-50 minutes. Crew members are working hard to restore regular service. We appreciate your patience during this difficult time.",
+                            "PostedDateTime": "03/04/2019 18:34:28",
+                            "Status": "UPD",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": null
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LW",
+                            "Name": "Lakeshore West",
+                            "MessageSubject": "Aldershot GO 18:36 - Union Station 19:46 train express from Clarkson to Union",
+                            "MessageBody": "The Aldershot GO 18:36 - Union Station 19:46 train is estimated to be delayed 10-15 minutes from Aldershot due to an earlier fatality. As a result, this train will make all regular stops to Clarkson and then run express to Union. The next train from Clarkson, all stops east to Union, leaves at 19:34.",
+                            "PostedDateTime": "03/04/2019 18:57:05",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "1228"
+                            ]
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LW",
+                            "Name": "Lakeshore West",
+                            "MessageSubject": "Aldershot GO 19:01 - Union Station 20:11 train express to Clarkson",
+                            "MessageBody": "The Aldershot GO 19:01 - Union Station 20:11 train is estimated to be delayed 15-20 minutes from Aldershot because of an earlier fatality. This train will run express to Clarkson and then make all stops to Union. The next train from Aldershot, all stops to Union, leaves at 19:31.",
+                            "PostedDateTime": "03/04/2019 19:02:54",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "1030"
+                            ]
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LW",
+                            "Name": "Lakeshore West",
+                            "MessageSubject": "Union Station 18:46 - Aldershot GO 19:51 train express to Clarkson",
+                            "MessageBody": "The Union Station 18:46 - Aldershot GO 19:51 train is estimated to be delayed 20-25 minutes from Union because of an earlier fatality. This train will run express to Clarkson, and then make all stops to Aldershot. The next train from Union, all stops to Aldershot, leaves at 19:13",
+                            "PostedDateTime": "03/04/2019 19:06:13",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "1227"
+                            ]
+                        }
+                    ]
+                },
+                "SaagNotifications": {
+                    "SaagNotification": [
+                        {
+                            "DepartureTimeDisplay": "17:30",
+                            "ArrivalTimeTimeDisplay": "18:45",
+                            "Direction": "WESTBOUND",
+                            "HeadSign": "Union Station to Hamilton GO Centre",
+                            "DelayDuration": "00:23:29",
+                            "Status": "Stopped",
+                            "PostedDateTime": "2019-03-04 19:07:10",
+                            "TripNumbers": [
+                                "1877"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "17:40",
+                            "ArrivalTimeTimeDisplay": "18:48",
+                            "Direction": "WESTBOUND",
+                            "HeadSign": "Union Station to Aldershot GO",
+                            "DelayDuration": "00:20:02",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:01",
+                            "TripNumbers": [
+                                "1225"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "18:00",
+                            "ArrivalTimeTimeDisplay": "19:15",
+                            "Direction": "WESTBOUND",
+                            "HeadSign": "Union Station to Hamilton GO Centre",
+                            "DelayDuration": "00:20:28",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:06",
+                            "TripNumbers": [
+                                "1879"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "18:01",
+                            "ArrivalTimeTimeDisplay": "19:11",
+                            "Direction": "EASTBOUND",
+                            "HeadSign": "Aldershot GO to Union Station",
+                            "DelayDuration": "00:13:09",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:10",
+                            "TripNumbers": [
+                                "1028"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "18:15",
+                            "ArrivalTimeTimeDisplay": "19:22",
+                            "Direction": "WESTBOUND",
+                            "HeadSign": "Union Station to Aldershot GO",
+                            "DelayDuration": "00:25:13",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:06",
+                            "TripNumbers": [
+                                "1027"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "18:30",
+                            "ArrivalTimeTimeDisplay": "19:28",
+                            "Direction": "WESTBOUND",
+                            "HeadSign": "Union Station to Aldershot GO",
+                            "DelayDuration": "00:23:07",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:00",
+                            "TripNumbers": [
+                                "1077"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 11
+            },
+            {
+                "CorridorName": "Lakeshore East",
+                "CorridorCode": "LE",
+                "Status": "9 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LE",
+                            "Name": "Lakeshore East",
+                            "MessageSubject": "Late Night Track Improvement – Possible Delays",
+                            "MessageBody": "From Sunday March 3 to Sunday, March 10, track maintenance will be taking place on your line. The work is happening from 9:00 p.m. until the end of service each day. Trains will need to operate slower through the work areas, and delays of up to 15 minutes are possible. This work includes rail welding and supports increased service levels along the Lakeshore East corridor.",
+                            "PostedDateTime": "03/03/2019 20:28:58",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": null
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LE",
+                            "Name": "Lakeshore East",
+                            "MessageSubject": "Lakeshore East service resumes",
+                            "MessageBody": "Service has resumed on your line, however, due to two separate fatalities today, we continue to experience delays of up to 30 minutes. As an added option to help you get home, you may use your GO fare or PRESTO cards to board the TTC at staffed entrances at Union, Main, Kennedy, and York Mills Subway Stations.<br><br>Passengers who need to reach Scarborough or Danforth: All Stouffville Trains will be stopping at Scarborough and Danforth GO Stations with the last Stouffville train departing Union at 20:00 this evening.<br><br><br><br><br>",
+                            "PostedDateTime": "03/04/2019 18:58:59",
+                            "Status": "UPD",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": null
+                        },
+                        {
+                            "SubCategory": "TCANCEL",
+                            "Code": "LE",
+                            "Name": "Lakeshore East",
+                            "MessageSubject": "Union Station 18:43 - Oshawa GO 19:41 train - cancelled",
+                            "MessageBody": "The Union Station 18:43 - Oshawa GO 19:41 train is cancelled as a result of an earlier fatality. The next scheduled train to Oshawa will be at 19:17.",
+                            "PostedDateTime": "03/04/2019 18:38:45",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "9226"
+                            ]
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "LE",
+                            "Name": "Lakeshore East",
+                            "MessageSubject": "Oshawa GO 18:38 - Union Station 19:41 train - will be express from Pickering",
+                            "MessageBody": "The Oshawa GO 18:38 - Union Station 19:41 train is delayed 20 minutes from Oshawa and will operate express from Pickering GO to Union due to an earlier fatality. The next all stops to Union will depart at 19:08.",
+                            "PostedDateTime": "03/04/2019 19:07:43",
+                            "Status": "UPD",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "9229"
+                            ]
+                        }
+                    ]
+                },
+                "SaagNotifications": {
+                    "SaagNotification": [
+                        {
+                            "DepartureTimeDisplay": "17:40",
+                            "ArrivalTimeTimeDisplay": "18:39",
+                            "Direction": "EASTBOUND",
+                            "HeadSign": "Union Station to Oshawa GO",
+                            "DelayDuration": "00:26:47",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:05:36",
+                            "TripNumbers": [
+                                "9224"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "17:46",
+                            "ArrivalTimeTimeDisplay": "18:44",
+                            "Direction": "WESTBOUND",
+                            "HeadSign": "Oshawa GO to Union Station",
+                            "DelayDuration": "00:35:08",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:10",
+                            "TripNumbers": [
+                                "9227"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "18:00",
+                            "ArrivalTimeTimeDisplay": "18:49",
+                            "Direction": "EASTBOUND",
+                            "HeadSign": "Union Station to Oshawa GO",
+                            "DelayDuration": "00:25:05",
+                            "Status": "Stopped",
+                            "PostedDateTime": "2019-03-04 19:07:06",
+                            "TripNumbers": [
+                                "9078"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "18:13",
+                            "ArrivalTimeTimeDisplay": "19:14",
+                            "Direction": "EASTBOUND",
+                            "HeadSign": "Union Station to Oshawa GO",
+                            "DelayDuration": "00:08:11",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:13",
+                            "TripNumbers": [
+                                "9026"
+                            ]
+                        },
+                        {
+                            "DepartureTimeDisplay": "19:00",
+                            "ArrivalTimeTimeDisplay": "19:45",
+                            "Direction": "WESTBOUND",
+                            "HeadSign": "Oshawa GO to Union Station",
+                            "DelayDuration": "00:07:04",
+                            "Status": "Stopped",
+                            "PostedDateTime": "2019-03-04 19:07:05",
+                            "TripNumbers": [
+                                "9981"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 9
+            },
+            {
+                "CorridorName": "Kitchener",
+                "CorridorCode": "GT",
+                "Status": "3 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "GT",
+                            "Name": "Kitchener",
+                            "MessageSubject": "Union Station 17:27 - Kitchener GO 19:39 train will end at Mount Pleasant",
+                            "MessageBody": "The Union Station 17:27 - Kitchener GO 19:39 train will end at Mount Pleasant because of an earlier fatality. There will be bus connections to stations further west.",
+                            "PostedDateTime": "03/04/2019 18:03:08",
+                            "Status": "UPD",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "3827"
+                            ]
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "GT",
+                            "Name": "Kitchener",
+                            "MessageSubject": "Union Station 18:00 - Kitchener GO 20:07 train delay",
+                            "MessageBody": "The Union Station 18:00 - Kitchener GO 20:07 train is delayed 25 minutes from Union because of an earlier fatality.",
+                            "PostedDateTime": "03/04/2019 18:30:04",
+                            "Status": "UPD",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "3927"
+                            ]
+                        }
+                    ]
+                },
+                "SaagNotifications": {
+                    "SaagNotification": [
+                        {
+                            "DepartureTimeDisplay": "18:50",
+                            "ArrivalTimeTimeDisplay": "20:57",
+                            "Direction": "NORTHBOUND",
+                            "HeadSign": "Union Station to Kitchener GO",
+                            "DelayDuration": "00:05:44",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:09",
+                            "TripNumbers": [
+                                "3929"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 3
+            },
+            {
+                "CorridorName": "Stouffville",
+                "CorridorCode": "ST",
+                "Status": "2 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "ST",
+                            "Name": "Stouffville",
+                            "MessageSubject": "Union Station 17:20 - Lincolnville GO 18:37 train delayed",
+                            "MessageBody": "The Union Station 17:20 - Lincolnville GO 18:37 train is delayed 33 minutes from origin because of train traffic.",
+                            "PostedDateTime": "03/04/2019 18:00:53",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "7726"
+                            ]
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "ST",
+                            "Name": "Stouffville",
+                            "MessageSubject": "Union Station 17:45 - Lincolnville GO 19:02 train delayed",
+                            "MessageBody": "The Union Station 17:45 - Lincolnville GO 19:02 train is delayed 18 minutes from origin because of train traffic.",
+                            "PostedDateTime": "03/04/2019 18:15:17",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "7926"
+                            ]
+                        }
+                    ]
+                },
+                "SaagNotifications": {
+                    "SaagNotification": []
+                },
+                "TotalUpdates": 2
+            },
+            {
+                "CorridorName": "Richmond Hill",
+                "CorridorCode": "RH",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": []
+                },
+                "SaagNotifications": {
+                    "SaagNotification": [
+                        {
+                            "DepartureTimeDisplay": "17:30",
+                            "ArrivalTimeTimeDisplay": "18:32",
+                            "Direction": "NORTHBOUND",
+                            "HeadSign": "Union Station to Gormley GO",
+                            "DelayDuration": "00:09:05",
+                            "Status": "Moving",
+                            "PostedDateTime": "2019-03-04 19:07:07",
+                            "TripNumbers": [
+                                "5327"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "CorridorName": "Barrie",
+                "CorridorCode": "BR",
+                "Status": "3 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "BR",
+                            "Name": "Barrie",
+                            "MessageSubject": "Union Station 17:05 - Allandale Waterfront GO 18:51 train delayed",
+                            "MessageBody": "The Union Station 17:05 - Allandale Waterfront GO 18:51 train is delayed 17 minutes from Union because of train traffic.",
+                            "PostedDateTime": "03/04/2019 17:42:01",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "6627"
+                            ]
+                        },
+                        {
+                            "SubCategory": "TDELAY",
+                            "Code": "BR",
+                            "Name": "Barrie",
+                            "MessageSubject": "Union Station 17:35 - Allandale Waterfront GO 19:21 train delayed",
+                            "MessageBody": "The Union Station 17:35 - Allandale Waterfront GO 19:21 train is delayed 32 minutes from Union because of an operational issue.",
+                            "PostedDateTime": "03/04/2019 18:26:23",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "6827"
+                            ]
+                        },
+                        {
+                            "SubCategory": "TCANCEL",
+                            "Code": "BR",
+                            "Name": "Barrie",
+                            "MessageSubject": "Union Station 18:05 - Allandale Waterfront GO 19:51 train cancelled",
+                            "MessageBody": "The T6629 Union Station 18:05 - Allandale Waterfront GO 19:51 train is cancelled from origin because of an operational issue. The next trip will depart Union at 18:35.",
+                            "PostedDateTime": "03/04/2019 18:45:12",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": [
+                                "6629"
+                            ]
+                        }
+                    ]
+                },
+                "SaagNotifications": {
+                    "SaagNotification": []
+                },
+                "TotalUpdates": 3
+            },
+            {
+                "CorridorName": "Milton",
+                "CorridorCode": "MI",
+                "Status": "On-Time",
+                "Notifications": {
+                    "Notification": []
+                },
+                "SaagNotifications": {
+                    "SaagNotification": []
+                },
+                "TotalUpdates": 0
+            }
+        ],
+        "Status": "29 Updates"
+    },
+    "Buses": {
+        "TotalUpdates": 7,
+        "Bus": [
+            {
+                "RouteName": "Hamilton QEW Express Service",
+                "RouteNumber": "16",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "BCANCEL",
+                            "Code": "16",
+                            "Name": "Hamilton QEW Express Service",
+                            "MessageSubject": "Union Station Bus Terminal 18:20 - Hamilton GO Centre 19:40 bus - Cancelled",
+                            "MessageBody": "The Union Station Bus Terminal 18:20 - Hamilton GO Centre 19:40 bus is cancelled due to an equipment issue. The next departure is at 18:35. We apologize for the inconvenience.",
+                            "PostedDateTime": "03/04/2019 17:40:40",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Bus",
+                            "TripNumbers": [
+                                "16681"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "RouteName": "Milton Hwy 401 Service",
+                "RouteNumber": "27",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "BCANCEL",
+                            "Code": "27",
+                            "Name": "Milton Hwy 401 Service",
+                            "MessageSubject": "Finch Bus Terminal 17:35 - Milton GO 19:10 bus - Delay",
+                            "MessageBody": "The Finch Bus Terminal 17:35 - Milton GO 19:10 bus is cancelled due to an equipment issue. The next departure is at 17:45. We apologize for the inconvenice.",
+                            "PostedDateTime": "03/04/2019 18:07:27",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Bus",
+                            "TripNumbers": [
+                                "27653"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "RouteName": "Pickering Hwy 407 Service",
+                "RouteNumber": "51",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "BCANCEL",
+                            "Code": "51",
+                            "Name": "Pickering Hwy 407 Service",
+                            "MessageSubject": "University of Toronto Scarborough 16:55 - Hwy 407 Bus Terminal 17:45 bus - Cancelled",
+                            "MessageBody": "The University of Toronto Scarborough 16:55 - Hwy 407 Bus Terminal 17:45 bus is cancelled due to an operational issue. The next departure is 17:00. We apologize for the inconvenience.",
+                            "PostedDateTime": "03/04/2019 16:56:21",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Bus",
+                            "TripNumbers": [
+                                "51582"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "RouteName": "Stouffville Train Meet Bus Service",
+                "RouteNumber": "70",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "BDELAY",
+                            "Code": "70",
+                            "Name": "Stouffville Train Meet Bus Service",
+                            "MessageSubject": "Lincolnville GO 16:32 - Railway St. @ Albert St. 16:52 bus - Estimated Delay",
+                            "MessageBody": "The Lincolnville GO 16:32 - Railway St. @ Albert St. 16:52 bus is estimated to be delayed 30 minutes waiting for a delayed train.",
+                            "PostedDateTime": "03/04/2019 17:06:43",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Bus",
+                            "TripNumbers": [
+                                "70571"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "RouteName": "Peterborough Hwy 115 Train Meet Service",
+                "RouteNumber": "88",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "BDELAY",
+                            "Code": "88",
+                            "Name": "Peterborough Hwy 115 Train Meet Service",
+                            "MessageSubject": "Oshawa GO 18:34 - Trent University 20:04 bus - Delayed",
+                            "MessageBody": "The Oshawa GO 18:34 - Trent University 20:04 bus is delayed 25 minutes from Oshawa as it was waiting for a delayed connecting train.",
+                            "PostedDateTime": "03/04/2019 19:06:48",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Bus",
+                            "TripNumbers": [
+                                "88760"
+                            ]
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "RouteName": "Oshawa / Yorkdale",
+                "RouteNumber": "92",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "BDELAY",
+                            "Code": "92",
+                            "Name": "Oshawa / Yorkdale",
+                            "MessageSubject": "Route 92 and 96 GO bus - General Delay",
+                            "MessageBody": "Buses on your route are experiencing delays up to 20 minutes because of heavy traffic conditions. An update will be provided when service is back to regular schedule times.",
+                            "PostedDateTime": "03/04/2019 18:10:25",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Bus",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "RouteName": "Oshawa Hwy 401 Service",
+                "RouteNumber": "96",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "BDELAY",
+                            "Code": "96",
+                            "Name": "Oshawa Hwy 401 Service",
+                            "MessageSubject": "Route 92 and 96 GO bus - General Delay",
+                            "MessageBody": "Buses on your route are experiencing delays up to 20 minutes because of heavy traffic conditions. An update will be provided when service is back to regular schedule times.",
+                            "PostedDateTime": "03/04/2019 18:10:25",
+                            "Status": "INIT",
+                            "ServiceMode": "GO Bus",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            }
+        ],
+        "Status": "7 Updates"
+    },
+    "Stations": {
+        "TotalUpdates": 14,
+        "Station": [
+            {
+                "StationName": "Agincourt GO",
+                "StationCode": "AG",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SGIOTHR",
+                            "Code": "AG",
+                            "Name": "Agincourt GO",
+                            "MessageSubject": "Agincourt GO Construction",
+                            "MessageBody": "There are major changes to the way you get into and around your station. Click on our <a href=\"https://www.gotransit.com/en/the-future-go/improvements/agincourt\" target=\"_blank\">Agincourt GO Station Improvements</a> page for more info.",
+                            "PostedDateTime": "01/02/2019 16:51:02",
+                            "Status": "UPD",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Bramalea GO",
+                "StationCode": "BE",
+                "Status": "2 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SGIOTHR",
+                            "Code": "BE",
+                            "Name": "Bramalea GO",
+                            "MessageSubject": "Bramalea GO Platform Update",
+                            "MessageBody": "As of February 13, a temporary platform on the south side of the station will serve the 4:32 p.m. trip from Union Station only. This platform has no elevator access to the north side of the station. All other trains will arrive on the regular platform, which has elevator access to the station building, north parking lot and bus loop. For trip times visit <a href=\"https://www.gotransit.com/en/trip-planning/go-service-updates/train-schedule-changes\" target=\"_blank\">gotransit.com/servicechanges</a>. <br><div><br></div>",
+                            "PostedDateTime": "02/13/2019 13:55:05",
+                            "Status": "UPD",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        },
+                        {
+                            "SubCategory": "SGIOTHR",
+                            "Code": "BE",
+                            "Name": "Bramalea GO",
+                            "MessageSubject": "Starting March 2: we’re moving 492 parking spaces to temporary lot",
+                            "MessageBody": "Starting Saturday, March 2, we’re relocating 492 spaces from the north parking lot to the Canadian Tire lot to begin excavating the new parking garage. <br><br>The spots leased at Canadian Tire are located directly across the street from the Bramalea Road entrance and are connected to the station by a protected walkway, which is marked with signage. For a map of which spots are being relocated and detailed directions about how to enter the temporary lot based on your direction of travel, visit <a href=\"https://www.gotransit.com/en/the-future-go/improvements/bramalea\" target=\"_blank\">gotransit.com </a><link to=\"\" http:=\"\" bit.ly=\"\" 2zjzmb5=\"\">.",
+                            "PostedDateTime": "02/21/2019 09:45:54",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 2
+            },
+            {
+                "StationName": "Burlington GO",
+                "StationCode": "BU",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "BU",
+                            "Name": "Burlington GO",
+                            "MessageSubject": "Burlington GO - Elevator out of Service",
+                            "MessageBody": "Burlington GO Passengers: The elevator connecting the north parking lot and north bus loop to the tunnel is out of service. All platforms are still accessible from the north side walk-on pathway to platform 1. Platform 2 and 3 can be accessed using the tunnel elevators. An update will be provided as more information becomes available.",
+                            "PostedDateTime": "02/01/2019 12:11:19",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Clarkson GO",
+                "StationCode": "CL",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SGIOTHR",
+                            "Code": "CL",
+                            "Name": "Clarkson GO",
+                            "MessageSubject": "Clarkson GO Pedestrian Bridge Temporarily Closed",
+                            "MessageBody": "The pedestrian bridge that connects the south parking lot to the bus loop and station building is closed until it can be replaced. We plan to begin construction in spring 2019, when the weather is warmer, and finish in summer 2019. You can still access the bus loop and station building via the south parking lot driveway off Southdown Road. It will take you an extra 5-10 minutes to walk around compared to using the bridge so please give yourself extra time getting to the station.<br>",
+                            "PostedDateTime": "11/14/2018 19:19:40",
+                            "Status": "UPD",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Cooksville GO",
+                "StationCode": "CO",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "TGENCON",
+                            "Code": "CO",
+                            "Name": "Cooksville GO",
+                            "MessageSubject": "Cooksville Platform Restrictions",
+                            "MessageBody": "The west side of the platform is closed for construction until spring 2019. Platforms can get crowded during peak times, so please remember to spread out along the east side of the platform to ensure safe boarding.",
+                            "PostedDateTime": "01/02/2019 16:48:15",
+                            "Status": "UPD",
+                            "ServiceMode": "GO Train",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Hamilton GO Centre",
+                "StationCode": "HA",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "HA",
+                            "Name": "Hamilton GO Centre",
+                            "MessageSubject": "Hamilton GO - Elevator Out of Service",
+                            "MessageBody": "The elevator connecting the main lobby to the buildings upper floors.is out of service. The station remains accessible.",
+                            "PostedDateTime": "02/13/2019 12:09:15",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Kennedy GO",
+                "StationCode": "KE",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "KE",
+                            "Name": "Kennedy GO",
+                            "MessageSubject": "Kennedy GO Elevator - Out of Service",
+                            "MessageBody": "The elevator connecting the GO platform and the TTC tunnel is out of service. Passengers who need this elevator to access the TTC system are advised to use the TTC station elevator on Transway Crescent, adjacent to the south parking lot.",
+                            "PostedDateTime": "03/04/2019 11:42:35",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Malton GO",
+                "StationCode": "MA",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "MA",
+                            "Name": "Malton GO",
+                            "MessageSubject": "Malton Elevator - Out of Service",
+                            "MessageBody": "Malton GO Passengers: The elevator connecting the tunnel to tracks #1 &amp; #2 is out of service. Passengers who need this elevator should board the train at Bramalea or Etobicoke North.",
+                            "PostedDateTime": "02/20/2019 13:53:55",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Milliken GO",
+                "StationCode": "MK",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SGIOTHR",
+                            "Code": "MK",
+                            "Name": "Milliken GO",
+                            "MessageSubject": "Milliken GO Construction",
+                            "MessageBody": "There are major changes to the way you get into and around your station. Click on our <a href=\"https://www.gotransit.com/en/the-future-go/improvements/milliken\" target=\"_blank\">Milliken GO Station Improvements</a> page for more info.",
+                            "PostedDateTime": "01/02/2019 16:42:51",
+                            "Status": "UPD",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "Pickering GO",
+                "StationCode": "PIN",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "PIN",
+                            "Name": "Pickering GO",
+                            "MessageSubject": "Pickering GO Station Elevator - Out of Service",
+                            "MessageBody": "The elevator connecting the pedestrian bridge to track 2 is out of service. The station remains accessible from the east tunnel.",
+                            "PostedDateTime": "03/04/2019 04:47:40",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            },
+            {
+                "StationName": "West Harbour",
+                "StationCode": "WR",
+                "Status": "2 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "WR",
+                            "Name": "West Harbour",
+                            "MessageSubject": "West Harbour GO Station Elevator - Out of Service",
+                            "MessageBody": "The elevator connecting the station to track 2 is out of service. Track 2 remains accessible via the parking deck elevator.",
+                            "PostedDateTime": "01/07/2019 04:21:58",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        },
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "WR",
+                            "Name": "West Harbour",
+                            "MessageSubject": "West Harbour GO Station Elevator - Out of Service",
+                            "MessageBody": "The elevator connecting the parking deck to track 1 is out of service. Track 1 remains accessible via the station elevator.",
+                            "PostedDateTime": "01/07/2019 04:29:01",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 2
+            },
+            {
+                "StationName": "Whitby GO",
+                "StationCode": "WH",
+                "Status": "1 Updates",
+                "Notifications": {
+                    "Notification": [
+                        {
+                            "SubCategory": "SADIS",
+                            "Code": "WH",
+                            "Name": "Whitby GO",
+                            "MessageSubject": "Whitby GO Elevator Out of Service",
+                            "MessageBody": "The elevator connecting the pedestrian bridge to tracks #1 &amp; #2 is out of service. The station remains accessible from the west tunnel in the south lot and from the north lot.",
+                            "PostedDateTime": "02/28/2019 14:54:41",
+                            "Status": "INIT",
+                            "ServiceMode": "Station",
+                            "TripNumbers": null
+                        }
+                    ]
+                },
+                "TotalUpdates": 1
+            }
+        ],
+        "Status": "14 Updates"
+    }
+}
