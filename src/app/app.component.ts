@@ -53,19 +53,31 @@ export class AppComponent implements OnInit {
     });
   }
 
-  hasDelay(train: Train): boolean {
-    return (train.saagNotifications.saagNotification).length > 0;
+  ngOnInit() {
+    this.store.dispatch(new GetServiceUpdate);
   }
 
   countSaagNotifications(train: Train): number {
     return train.saagNotifications.saagNotification.length;
   }
 
-  ngOnInit() {
-    this.store.dispatch(new GetServiceUpdate);
+  hasDelay(train: Train): boolean {
+    return (train.saagNotifications.saagNotification).length > 0;
   }
 
   refresh() {
     this.store.dispatch(new GetNewServiceUpdate);
+  }
+
+  toggleDelay(event: MouseEvent|KeyboardEvent|Event, train: Train): void {
+    const delayRow: HTMLElement = event.target.parentElement.parentElement.nextElementSibling;
+
+    if (delayRow.classList.contains('delay-info')) {
+      if (delayRow.classList.contains('delay-info--show')) {
+        delayRow.classList.remove('delay-info--show');
+      } else {
+        delayRow.classList.add('delay-info--show');
+      }
+    }
   }
 }

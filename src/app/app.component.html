@@ -33,7 +33,7 @@
         <ng-container *ngIf='serviceUpdate$ | async as state'>
           <ng-container *ngFor='let train of state?.serviceUpdate?.trains?.train'>
             <!-- <imtd-train-status-row [train]='train'></imtd-train-status-row> -->
-            <tr>
+            <tr (click)='toggleDelay($event, train)'>
               <td>
                 <span class="status-circle" [ngClass]='!hasDelay(train) ? "on-time" : "delayed"'>
                 </span>
@@ -57,9 +57,11 @@
               </ng-template>
             </tr>
             <ng-container *ngIf='hasDelay(train)'>
-              <tr *ngFor='let notification of train?.saagNotifications?.saagNotification'>
+              <tr class='delay-info'>
                 <td colspan='3'>
-                  <div class='delay-row'>
+                  <div *ngFor='let notification of train?.saagNotifications?.saagNotification'
+                       class='delay-row'>
+                       
                     <p class='delay-row__sign'>
                       {{ notification?.headSign }}
                     </p>
@@ -70,6 +72,7 @@
                     <p class='delay-row__status'>
                       {{ notification?.status }}
                     </p>
+
                   </div>
                 </td>
               </tr>
