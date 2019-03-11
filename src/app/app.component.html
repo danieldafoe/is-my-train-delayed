@@ -16,181 +16,181 @@
       <!-- foo -->
     </h1>
   </header>
-</div>
 
-<div class='main'>
-  <main class="train-info" id="train-info" aria-label="Train information">
-    {{ delays }}
-    <table>
-      <caption class="accessible">Train status information</caption>
-      <thead>
-        <tr>
-          <th scope='col' colspan="2">Train Line</th>
-          <th scope='col'>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngIf='serviceUpdate$ | async as state'>
-          <ng-container *ngFor='let train of state?.serviceUpdate?.trains?.train'>
-            <!-- <imtd-train-status-row [train]='train'></imtd-train-status-row> -->
-            <tr (click)='toggleDelay($event, train)'>
-              <td>
-                <span class="status-circle" [ngClass]='!hasDelay(train) ? "on-time" : "delayed"'>
-                </span>
-              </td>
-              <td>
-                {{ train?.corridorName }}
-              </td>
-              <td *ngIf='!hasDelay(train); else delayed'>
-                On-Time
-              </td>
-              <ng-template #delayed>
+  <div class='main'>
+    <main class="train-info" id="train-info" aria-label="Train information">
+      {{ delays }}
+      <table>
+        <caption class="accessible">Train status information</caption>
+        <thead>
+          <tr>
+            <th scope='col' colspan="2">Train Line</th>
+            <th scope='col'>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf='serviceUpdate$ | async as state'>
+            <ng-container *ngFor='let train of state?.serviceUpdate?.trains?.train'>
+              <!-- <imtd-train-status-row [train]='train'></imtd-train-status-row> -->
+              <tr (click)='toggleDelay($event, train)'>
                 <td>
-                  <button type='button'
-                          aria-expanded='false'
-                          class='delay-info-expand'
-                          title='Click to expand and get more information about this delay'>
-                    {{ train?.saagNotifications.saagNotification.length }} delay{{ train?.saagNotifications.saagNotification.length > 1 ? 's' : '' }}
-                    <span class='accessible'>for {{ train.corridorName }}</span>
-                  </button>
+                  <span class="status-circle" [ngClass]='!hasDelay(train) ? "on-time" : "delayed"'>
+                  </span>
                 </td>
-              </ng-template>
-            </tr>
-            <ng-container *ngIf='hasDelay(train)'>
-              <tr class='delay-info'>
-                <td colspan='3'>
-                  <div *ngFor='let notification of train?.saagNotifications?.saagNotification'
-                       class='delay-row'>
-                       
-                    <p class='delay-row__sign'>
-                      {{ notification?.headSign }}
-                    </p>
-                    <p class='delay-row__duration'>
-                      Delay: 
-                      {{ notification?.delayDuration }}
-                    </p>
-                    <p class='delay-row__status'>
-                      {{ notification?.status }}
-                    </p>
+                <td>
+                  {{ train?.corridorName }}
+                </td>
+                <td *ngIf='!hasDelay(train); else delayed'>
+                  On-Time
+                </td>
+                <ng-template #delayed>
+                  <td>
+                    <button type='button'
+                            aria-expanded='false'
+                            class='delay-info-expand'
+                            title='Click to expand and get more information about this delay'>
+                      {{ train?.saagNotifications.saagNotification.length }} delay{{ train?.saagNotifications.saagNotification.length > 1 ? 's' : '' }}
+                      <span class='accessible'>for {{ train.corridorName }}</span>
+                    </button>
+                  </td>
+                </ng-template>
+              </tr>
+              <ng-container *ngIf='hasDelay(train)'>
+                <tr class='delay-info'>
+                  <td colspan='3'>
+                    <div *ngFor='let notification of train?.saagNotifications?.saagNotification'
+                        class='delay-row'>
+                        
+                      <p class='delay-row__sign'>
+                        {{ notification?.headSign }}
+                      </p>
+                      <p class='delay-row__duration'>
+                        Delay: 
+                        {{ notification?.delayDuration }}
+                      </p>
+                      <p class='delay-row__status'>
+                        {{ notification?.status }}
+                      </p>
 
-                  </div>
+                    </div>
+                  </td>
+                </tr>
+              </ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf='serviceUpdate$ | async as state'>
+            <ng-container *ngIf='state?.error'>
+              <tr>
+                <td colspan="3">
+                  Unable to retrieve train information.
                 </td>
               </tr>
             </ng-container>
           </ng-container>
-        </ng-container>
-        <ng-container *ngIf='serviceUpdate$ | async as state'>
-          <ng-container *ngIf='state?.error'>
-            <tr>
-              <td colspan="3">
-                Unable to retrieve train information.
-              </td>
-            </tr>
-          </ng-container>
-        </ng-container>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
 
-    <div class="train-info__last-retrieved">
-      <p>
-        Last refreshed: 
-        <ng-container *ngIf='serviceUpdate$ | async as state'>
-          <span *ngIf='state?.serviceUpdate; else noUpdate'>
-            {{ state?.serviceUpdate?.lastUpdated | formatRefreshTime }}
-          </span>
-          <ng-template #noUpdate>
-            <span>
-              N/A
+      <div class="train-info__last-retrieved">
+        <p>
+          Last refreshed: 
+          <ng-container *ngIf='serviceUpdate$ | async as state'>
+            <span *ngIf='state?.serviceUpdate; else noUpdate'>
+              {{ state?.serviceUpdate?.lastUpdated | formatRefreshTime }}
             </span>
+            <ng-template #noUpdate>
+              <span>
+                N/A
+              </span>
+            </ng-template>
+          </ng-container>
+        </p>
+      </div>
+      <div class="train-info__actions">
+        <button *ngIf='serviceUpdate$ | async as state'
+                (click)='refresh()'
+                type="button">
+
+          <ng-container *ngIf='state?.buttonLoader === false; else fetching'>
+            Refresh
+          </ng-container>
+          <ng-template #fetching>
+            <svg class='icon icon--refresh'
+                [ngClass]='state?.buttonLoader === true ? "spin" : "icon--hidden"'
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                x="0px"
+                y="0px"
+                viewBox="0 0 100 100"
+                enableBackground="new 0 0 100 100" xmlSpace="preserve">
+              <g display="none">
+                <polygon display="inline"
+                        points="85.982,15.043 14.018,15.043 41.006,42.031 41.006,84.957 58.996,72.963 58.996,42.031" />
+              </g>
+              <g display="none">
+                <path display="inline"
+                      d="M76.592,85.935l-11.32-17.052l7.006-6.496V15.922c0-1.024-0.832-1.856-1.859-1.856H29.314   c-1.027,0-1.861,0.832-1.861,1.856v46.465l7.17,6.644L23.408,85.935h6.404l8.775-13.227l0.07,0.064h22.414l0.238-0.221   l8.875,13.383H76.592z M62.004,64.233c-2.355,0-4.266-1.907-4.266-4.27c0-2.356,1.91-4.266,4.266-4.266   c2.357,0,4.27,1.909,4.27,4.266C66.273,62.326,64.361,64.233,62.004,64.233z M43.463,17.634h12.805v4.406H43.463V17.634z    M33.859,26.169h32.012V45.38H33.859V26.169z M38.525,64.233c-2.357,0-4.268-1.907-4.268-4.27c0-2.356,1.91-4.266,4.268-4.266   c2.359,0,4.271,1.909,4.271,4.266C42.797,62.326,40.885,64.233,38.525,64.233z" />
+              </g>
+              <g>
+                <path className="refresh-icon-top"
+                      d="M77.845,26.948c-6.625-7.896-16.55-12.932-27.689-12.932c-19.975,0-36.138,16.107-36.138,35.984h14.395   c0-11.961,9.765-21.691,21.786-21.691c7.191,0,13.567,3.501,17.538,8.867l-8.464,8.088l26.71-0.012V18.667L77.845,26.948z" />
+                <path className="refresh-icon-bottom"
+                      d="M49.799,71.687c-7.193,0-13.565-3.5-17.539-8.867l8.464-8.086l-26.706,0.012V81.33l8.134-8.281   c6.625,7.896,16.551,12.935,27.69,12.935c19.978,0,36.141-16.11,36.141-35.986H71.584C71.584,61.956,61.819,71.687,49.799,71.687z" />
+              </g>
+              <g display="none">
+                <polygon display="inline" points="32.01,14.02 67.99,50.002 32.01,85.98" />
+              </g>
+            </svg>
           </ng-template>
-        </ng-container>
-      </p>
-    </div>
-    <div class="train-info__actions">
-      <button *ngIf='serviceUpdate$ | async as state'
-              (click)='refresh()'
-              type="button">
-
-        <ng-container *ngIf='state?.buttonLoader === false; else fetching'>
-          Refresh
-        </ng-container>
-        <ng-template #fetching>
-          <svg class='icon icon--refresh'
-               [ngClass]='state?.buttonLoader === true ? "spin" : "icon--hidden"'
-               xmlns="http://www.w3.org/2000/svg"
-               xmlnsXlink="http://www.w3.org/1999/xlink"
-               version="1.1"
-               x="0px"
-               y="0px"
-               viewBox="0 0 100 100"
-               enableBackground="new 0 0 100 100" xmlSpace="preserve">
-            <g display="none">
-              <polygon display="inline"
-                       points="85.982,15.043 14.018,15.043 41.006,42.031 41.006,84.957 58.996,72.963 58.996,42.031" />
-            </g>
-            <g display="none">
-              <path display="inline"
-                    d="M76.592,85.935l-11.32-17.052l7.006-6.496V15.922c0-1.024-0.832-1.856-1.859-1.856H29.314   c-1.027,0-1.861,0.832-1.861,1.856v46.465l7.17,6.644L23.408,85.935h6.404l8.775-13.227l0.07,0.064h22.414l0.238-0.221   l8.875,13.383H76.592z M62.004,64.233c-2.355,0-4.266-1.907-4.266-4.27c0-2.356,1.91-4.266,4.266-4.266   c2.357,0,4.27,1.909,4.27,4.266C66.273,62.326,64.361,64.233,62.004,64.233z M43.463,17.634h12.805v4.406H43.463V17.634z    M33.859,26.169h32.012V45.38H33.859V26.169z M38.525,64.233c-2.357,0-4.268-1.907-4.268-4.27c0-2.356,1.91-4.266,4.268-4.266   c2.359,0,4.271,1.909,4.271,4.266C42.797,62.326,40.885,64.233,38.525,64.233z" />
-            </g>
-            <g>
-              <path className="refresh-icon-top"
-                    d="M77.845,26.948c-6.625-7.896-16.55-12.932-27.689-12.932c-19.975,0-36.138,16.107-36.138,35.984h14.395   c0-11.961,9.765-21.691,21.786-21.691c7.191,0,13.567,3.501,17.538,8.867l-8.464,8.088l26.71-0.012V18.667L77.845,26.948z" />
-              <path className="refresh-icon-bottom"
-                    d="M49.799,71.687c-7.193,0-13.565-3.5-17.539-8.867l8.464-8.086l-26.706,0.012V81.33l8.134-8.281   c6.625,7.896,16.551,12.935,27.69,12.935c19.978,0,36.141-16.11,36.141-35.986H71.584C71.584,61.956,61.819,71.687,49.799,71.687z" />
-            </g>
-            <g display="none">
-              <polygon display="inline" points="32.01,14.02 67.99,50.002 32.01,85.98" />
-            </g>
-          </svg>
-        </ng-template>
-      </button>
-    </div>
-  </main>
-
-  <div class="site-info"
-       role="complementary"
-       aria-label="Information about Is My Train Delayed?">
-
-    <h2>How does this work?</h2>
-    <p>
-      This application uses the official GO Transit website to get its data. Whatever the GO Transit
-      website shows for train delays is what this site will show.
-    </p>
-
-    <h2>So why use this over GO Transit?</h2>
-    <p>
-      Fair question. The short answer is: impact to your data plan; the longer one is: after the
-      initial load of this page, it will cost your data plan ~1.3KB to refresh and get the most
-      up-to-date data. Even the first time you load this page costs less data than the GO Transit
-      website.
-    </p>
-
-    <h2>Coming Soon</h2>
-    <ul>
-      <li>
-        <strong>Improved Accessibility:</strong> Better code to support screen readers, as well as
-        interactions and design that better accommodate everyone who may use this application.
-      </li>
-      <li>
-        <strong>Metadata Tagging:</strong> Information that will show when searching for train
-        delays using Google. Similar to the visuals and info you see in Google search results without
-        clicking on a result.
-      </li>
-      <li class="goal-complete">
-        <strong>Manual Refresh:</strong> Click or touch the Refresh button to
-        get the latest train delays--no more page refreshing.
-      </li>
-    </ul>
-
-    <h2>Want to Help?</h2>
-    <p>
-      Please open an issue or pull request on the official 
-      <a href="https://github.com/danieldafoe/is-my-train-delayed">
-        GitHub repo
-      </a>
-      .
-    </p>
+        </button>
+      </div>
+    </main>
   </div>
+</div>
+
+<div class="site-info"
+      role="complementary"
+      aria-label="Information about Is My Train Delayed?">
+
+  <h2>How does this work?</h2>
+  <p>
+    This application uses the official GO Transit website to get its data. Whatever the GO Transit
+    website shows for train delays is what this site will show.
+  </p>
+
+  <h2>So why use this over GO Transit?</h2>
+  <p>
+    Fair question. The short answer is: impact to your data plan; the longer one is: after the
+    initial load of this page, it will cost your data plan ~1.3KB to refresh and get the most
+    up-to-date data. Even the first time you load this page costs less data than the GO Transit
+    website.
+  </p>
+
+  <h2>Coming Soon</h2>
+  <ul>
+    <li>
+      <strong>Improved Accessibility:</strong> Better code to support screen readers, as well as
+      interactions and design that better accommodate everyone who may use this application.
+    </li>
+    <li>
+      <strong>Metadata Tagging:</strong> Information that will show when searching for train
+      delays using Google. Similar to the visuals and info you see in Google search results without
+      clicking on a result.
+    </li>
+    <li class="goal-complete">
+      <strong>Manual Refresh:</strong> Click or touch the Refresh button to
+      get the latest train delays--no more page refreshing.
+    </li>
+  </ul>
+
+  <h2>Want to Help?</h2>
+  <p>
+    Please open an issue or pull request on the official 
+    <a href="https://github.com/danieldafoe/is-my-train-delayed">
+      GitHub repo
+    </a>
+    .
+  </p>
 </div>
 
 <footer>

@@ -131,6 +131,10 @@ tbody {
     &:nth-child(2) {
       font-weight: 600;
       padding: 1rem 3rem 1rem 1rem;
+
+      @media (max-width: 400px) {
+        padding: 1rem 2rem 1rem 1rem;
+      }
     }
 
     &:last-child {
@@ -156,6 +160,10 @@ h1 {
 
   @media (max-width: 480px) {
     font-size: 280%;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 250%;
   }
 }
 
@@ -299,9 +307,11 @@ svg {
 .train-info {
   margin: 3rem auto 0;
 
+  &__actions,
   &__last-retrieved {
-    font-size: 1.4rem;
-    font-style: italic;
+    @media (max-width: 480px) {
+      padding: 0 2rem;
+    }
   }
 
   &__actions {
@@ -322,6 +332,11 @@ svg {
         cursor: pointer;
       }
     }
+  }
+
+  &__last-retrieved {
+    font-size: 1.4rem;
+    font-style: italic;
   }
 }
 
