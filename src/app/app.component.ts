@@ -69,8 +69,8 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new GetNewServiceUpdate);
   }
 
-  toggleDelay(event: MouseEvent|KeyboardEvent|Event, train: Train): void {
-    const delayRow: HTMLElement = event.target.parentElement.parentElement.nextElementSibling;
+  toggleDelay(event: MouseEvent | KeyboardEvent | Event, train: Train): void {
+    const delayRow: HTMLElement = event.target['parentElement'].parentElement.nextElementSibling;
 
     if (delayRow.classList.contains('delay-info')) {
       if (delayRow.classList.contains('delay-info--show')) {
